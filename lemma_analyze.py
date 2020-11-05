@@ -6,7 +6,7 @@ corpus_folder = join(CACHE_ROOT, "datasets", "VLSP2013-WTK-R2")
 train = join(corpus_folder, "test.txt")
 with open(train, "r") as f:
     sentences = f.read().split("\n\n")[:-1]
-# sentences = sentences[:30000]
+# sentences = sentences[:5000]
 
 num_tokens_range = range(2, 15)
 tree = {}
@@ -53,7 +53,9 @@ def analyze_ngram(num_tokens):
     for node in tree[tree_key]:
         if "B-W" + " I-W" * (num_tokens - 1) in tree[tree_key][node]:
             count += 1
-            if len(tree[tree_key][node]) > 1:
+            keys = list(tree[tree_key][node].keys())
+            conflict_keys = [key for key in keys if key.startswith("B-W B-W")]
+            if len(conflict_keys) > 0:
                 print(node)
                 print(tree[tree_key][node])
                 count_conflict += 1
