@@ -1,0 +1,766 @@
+0
+2gram 26774
+hình phạt
+{'B-W I-W': 162, 'I-W I-W': 4}
+áp dụng
+{'B-W I-W': 132, 'I-W I-W': 7}
+người thân
+{'B-W B-W': 4, 'B-W I-W': 1}
+ngày càng
+{'B-W I-W': 29, 'B-W B-W': 1}
+việc làm
+{'B-W I-W': 7, 'B-W B-W': 2, 'I-W I-W': 1}
+tính nhân
+{'B-W B-W': 11, 'B-W I-W': 3}
+thế giới
+{'B-W I-W': 29, 'I-W I-W': 2}
+loại hình
+{'B-W B-W': 21, 'B-W I-W': 9}
+một số
+{'B-W I-W': 72, 'B-W B-W': 3}
+Việt Nam
+{'B-W I-W': 343, 'I-W I-W': 28}
+luật hình
+{'B-W I-W': 37, 'I-W B-W': 22, 'I-W I-W': 24, 'B-W B-W': 2}
+hình sự
+{'I-W I-W': 87, 'B-W I-W': 141}
+nghiên cứu
+{'B-W I-W': 42, 'I-W I-W': 2}
+pháp luật
+{'B-W I-W': 543, 'I-W I-W': 56}
+cấu thành
+{'B-W I-W': 26, 'I-W B-W': 1}
+tội phạm
+{'B-W I-W': 137, 'I-W I-W': 11}
+có thể
+{'B-W I-W': 142, 'B-W B-W': 1}
+khoa học
+{'B-W I-W': 18, 'I-W I-W': 5}
+dân chủ
+{'B-W I-W': 136, 'I-W B-W': 1, 'I-W I-W': 17}
+quốc tế
+{'B-W I-W': 106, 'I-W I-W': 1}
+Bộ Chính
+{'B-W B-W': 2, 'B-W I-W': 4}
+Chính trị
+{'B-W I-W': 3, 'I-W I-W': 4}
+yêu cầu
+{'B-W I-W': 85, 'I-W I-W': 1}
+do đó
+{'I-W B-W': 1, 'B-W I-W': 6}
+một cách
+{'B-W I-W': 51, 'B-W B-W': 1}
+không thể
+{'B-W I-W': 28, 'B-W B-W': 1}
+giá trị
+{'B-W I-W': 38, 'I-W I-W': 1}
+xã hội
+{'B-W I-W': 471, 'I-W I-W': 14}
+tính giai
+{'B-W B-W': 1, 'B-W I-W': 2}
+giai cấp
+{'B-W I-W': 35, 'I-W I-W': 5}
+kinh tế
+{'B-W I-W': 328, 'I-W I-W': 2}
+sản xuất
+{'I-W I-W': 7, 'B-W I-W': 12}
+bình đẳng
+{'B-W I-W': 17, 'I-W I-W': 3}
+pháp lí
+{'B-W I-W': 149, 'I-W I-W': 1}
+cơ bản
+{'B-W I-W': 72, 'I-W I-W': 2}
+Nhà nước
+{'B-W I-W': 297, 'I-W I-W': 1}
+trách nhiệm
+{'B-W I-W': 88, 'I-W I-W': 2}
+tư tưởng
+{'B-W I-W': 57, 'I-W I-W': 1}
+nghĩa là
+{'B-W I-W': 3, 'B-W B-W': 11, 'I-W B-W': 2}
+không chỉ
+{'B-W I-W': 47, 'B-W B-W': 1}
+nào đó
+{'B-W I-W': 15, 'I-W B-W': 1}
+giáo dục
+{'B-W I-W': 23, 'I-W I-W': 1}
+nói chung
+{'B-W I-W': 27, 'I-W B-W': 1}
+toàn bộ
+{'B-W I-W': 23, 'I-W B-W': 1}
+nhà làm
+{'B-W B-W': 2, 'B-W I-W': 3}
+làm luật
+{'B-W B-W': 2, 'I-W I-W': 3, 'B-W I-W': 13}
+chính trị
+{'B-W I-W': 123, 'I-W I-W': 2}
+cộng sản
+{'B-W I-W': 3, 'I-W I-W': 9}
+vi phạm
+{'B-W I-W': 35, 'I-W B-W': 9}
+Cùng với
+{'B-W B-W': 3, 'B-W I-W': 3}
+chế độ
+{'B-W I-W': 98, 'I-W I-W': 2}
+tư hữu
+{'I-W I-W': 1, 'B-W I-W': 1}
+ban hành
+{'B-W I-W': 104, 'I-W I-W': 6}
+hành pháp
+{'I-W B-W': 17, 'B-W I-W': 52}
+nhất là
+{'B-W B-W': 9, 'I-W B-W': 2, 'B-W I-W': 32}
+công nghiệp
+{'I-W I-W': 3, 'B-W I-W': 8}
+chủ nghĩa
+{'I-W I-W': 77, 'B-W I-W': 94}
+ngược lại
+{'B-W I-W': 7, 'B-W B-W': 1}
+Châu Âu
+{'I-W I-W': 1, 'B-W I-W': 8}
+định hình
+{'I-W B-W': 6, 'B-W I-W': 4}
+văn bản
+{'B-W I-W': 119, 'I-W I-W': 6}
+quy phạm
+{'B-W I-W': 61, 'I-W I-W': 6}
+phạm pháp
+{'I-W I-W': 52, 'I-W B-W': 8, 'B-W I-W': 6}
+có giá
+{'B-W B-W': 4, 'B-W I-W': 1}
+xâm phạm
+{'B-W I-W': 49, 'I-W I-W': 3}
+tự quản
+{'I-W B-W': 23, 'B-W I-W': 14}
+độc lập
+{'B-W I-W': 43, 'I-W I-W': 3}
+đa số
+{'B-W I-W': 4, 'I-W I-W': 2}
+hiện tại
+{'I-W B-W': 1, 'B-W I-W': 1}
+nhân dân
+{'B-W I-W': 284, 'I-W I-W': 29}
+Tối cao
+{'B-W I-W': 2, 'I-W I-W': 2}
+gia đình
+{'B-W I-W': 4, 'I-W I-W': 1}
+tài chính
+{'B-W I-W': 15, 'I-W I-W': 1}
+sở hữu
+{'B-W I-W': 16, 'I-W I-W': 8}
+chiến tranh
+{'I-W I-W': 1, 'B-W I-W': 9}
+luật quốc
+{'I-W B-W': 16, 'B-W I-W': 1}
+tiếp cận
+{'B-W I-W': 33, 'I-W I-W': 1}
+thông tin
+{'B-W I-W': 72, 'I-W I-W': 11}
+công dân
+{'B-W I-W': 87, 'I-W I-W': 10}
+dân sự
+{'B-W I-W': 57, 'I-W I-W': 2}
+quyền tự
+{'B-W B-W': 37, 'B-W I-W': 8, 'I-W B-W': 2}
+tự do
+{'B-W I-W': 82, 'I-W I-W': 8, 'I-W B-W': 1}
+nhà nước
+{'B-W I-W': 261, 'I-W I-W': 31}
+làm chủ
+{'B-W I-W': 12, 'B-W B-W': 2}
+chấp hành
+{'B-W I-W': 17, 'I-W I-W': 4}
+xây dựng
+{'B-W I-W': 236, 'I-W I-W': 1}
+toàn quốc
+{'B-W I-W': 11, 'B-W B-W': 1}
+luật dân
+{'I-W B-W': 7, 'I-W I-W': 1, 'B-W I-W': 1}
+thương mại
+{'B-W I-W': 56, 'I-W I-W': 2}
+khiếu nại
+{'B-W I-W': 4, 'I-W I-W': 1}
+tố cáo
+{'B-W I-W': 3, 'I-W I-W': 1}
+vụ việc
+{'I-W B-W': 1, 'B-W I-W': 3}
+Chính phủ
+{'B-W I-W': 144, 'I-W I-W': 2}
+kế hoạch
+{'B-W I-W': 13, 'I-W I-W': 1}
+Ban Bí
+{'B-W B-W': 2, 'B-W I-W': 2}
+Bí thư
+{'B-W I-W': 2, 'I-W I-W': 2}
+Trung ương
+{'B-W I-W': 9, 'I-W I-W': 1}
+Quốc hội
+{'B-W I-W': 371, 'I-W I-W': 33}
+Luật PBGDPL
+{'B-W B-W': 3, 'B-W I-W': 2}
+Tư pháp
+{'I-W I-W': 6, 'B-W I-W': 5}
+Tổ chức
+{'B-W I-W': 16, 'I-W I-W': 1}
+trung ương
+{'B-W I-W': 21, 'I-W I-W': 2}
+doanh nghiệp
+{'B-W I-W': 29, 'I-W I-W': 2}
+pháp chế
+{'B-W I-W': 15, 'I-W B-W': 1}
+bí thư
+{'B-W I-W': 1, 'I-W I-W': 3}
+dự thảo
+{'B-W I-W': 22, 'I-W B-W': 1}
+Hình sự
+{'I-W I-W': 3, 'B-W I-W': 6}
+đẩy mạnh
+{'B-W I-W': 17, 'I-W B-W': 1}
+nối mạng
+{'I-W B-W': 1, 'B-W I-W': 1}
+sử dụng
+{'B-W I-W': 32, 'I-W I-W': 1}
+điện tử
+{'I-W I-W': 2, 'B-W I-W': 3}
+vật chất
+{'B-W I-W': 11, 'I-W I-W': 2}
+thị trường
+{'I-W I-W': 29, 'B-W I-W': 18}
+phép vua
+{'B-W I-W': 4, 'B-W B-W': 1}
+lệ làng
+{'I-W I-W': 4, 'B-W I-W': 23}
+hiện hành
+{'B-W I-W': 12, 'I-W B-W': 2}
+đầu tư
+{'B-W I-W': 28, 'I-W I-W': 3}
+đề tài
+{'B-W I-W': 3, 'I-W B-W': 1}
+thiểu số
+{'I-W I-W': 2, 'B-W I-W': 3}
+chuyên môn
+{'B-W I-W': 8, 'I-W I-W': 1}
+hơn nữa
+{'B-W I-W': 3, 'B-W B-W': 6}
+kết hợp
+{'B-W I-W': 13, 'I-W I-W': 1}
+đề xuất
+{'B-W I-W': 8, 'I-W B-W': 1}
+đồng bộ
+{'B-W I-W': 16, 'I-W I-W': 1}
+khuyến khích
+{'B-W I-W': 6, 'I-W I-W': 1}
+lập pháp
+{'B-W I-W': 194, 'I-W I-W': 11}
+luật học
+{'B-W I-W': 2, 'I-W I-W': 1}
+nhà lập
+{'B-W B-W': 3, 'B-W I-W': 11}
+Luật hình
+{'B-W I-W': 2, 'I-W B-W': 1, 'I-W I-W': 1}
+hợp pháp
+{'B-W I-W': 21, 'I-W I-W': 3}
+hợp lí
+{'B-W I-W': 16, 'I-W I-W': 1}
+hành chính
+{'B-W I-W': 66, 'I-W B-W': 1, 'I-W I-W': 16}
+tố tụng
+{'B-W I-W': 14, 'I-W I-W': 1}
+tác giả
+{'B-W I-W': 5, 'I-W I-W': 2}
+Nếu như
+{'B-W I-W': 2, 'B-W B-W': 1}
+chính sự
+{'B-W B-W': 1, 'B-W I-W': 1}
+Mặt khác
+{'B-W I-W': 6, 'B-W B-W': 1}
+quyền lực
+{'B-W I-W': 121, 'I-W I-W': 7}
+Pháp luật
+{'B-W I-W': 12, 'I-W I-W': 2}
+hàng hoá
+{'B-W I-W': 18, 'I-W I-W': 5}
+chưa biết
+{'B-W B-W': 1, 'B-W I-W': 1}
+quyền sở
+{'B-W B-W': 7, 'B-W I-W': 5}
+định tội
+{'B-W I-W': 1, 'I-W B-W': 1}
+số ít
+{'B-W B-W': 1, 'B-W I-W': 1}
+trí tuệ
+{'I-W I-W': 10, 'B-W I-W': 2}
+chứng khoán
+{'B-W I-W': 9, 'I-W I-W': 1}
+hợp tác
+{'B-W I-W': 7, 'I-W I-W': 1}
+đầu cơ
+{'B-W I-W': 3, 'B-W B-W': 1}
+ngân sách
+{'B-W I-W': 10, 'I-W I-W': 1}
+không khí
+{'B-W I-W': 2, 'I-W I-W': 1}
+pháp quy
+{'B-W I-W': 3, 'I-W B-W': 3}
+bộ luật
+{'B-W I-W': 5, 'I-W B-W': 1}
+chính phủ
+{'B-W I-W': 8, 'I-W I-W': 2}
+hợp hiến
+{'I-W I-W': 70, 'B-W I-W': 38}
+thực dân
+{'B-W I-W': 15, 'I-W I-W': 2}
+chính quốc
+{'B-W I-W': 1, 'I-W B-W': 3}
+thuộc địa
+{'B-W I-W': 5, 'I-W I-W': 1}
+cộng hoà
+{'B-W I-W': 15, 'I-W I-W': 4}
+quyền hành
+{'B-W I-W': 6, 'B-W B-W': 11, 'I-W B-W': 2}
+bộ trưởng
+{'I-W I-W': 1, 'B-W I-W': 2}
+phân quyền
+{'B-W I-W': 17, 'B-W B-W': 1}
+thành công
+{'I-W B-W': 3, 'B-W I-W': 10}
+Chủ nghĩa
+{'B-W I-W': 8, 'I-W I-W': 9}
+phương Tây
+{'B-W B-W': 20, 'B-W I-W': 1}
+như là
+{'B-W I-W': 2, 'I-W B-W': 1, 'B-W B-W': 1}
+quân chủ
+{'I-W I-W': 6, 'B-W I-W': 10}
+chuyên đế
+{'B-W I-W': 1, 'B-W B-W': 1}
+lập hiến
+{'B-W I-W': 41, 'I-W I-W': 3}
+tối cao
+{'B-W I-W': 35, 'I-W I-W': 2}
+công quyền
+{'B-W I-W': 18, 'I-W B-W': 4}
+quyền công
+{'B-W I-W': 9, 'B-W B-W': 3}
+Nhóm Thanh
+{'B-W B-W': 4, 'B-W I-W': 1}
+Thanh Nghị
+{'B-W I-W': 9, 'I-W I-W': 2}
+nhà luật
+{'B-W B-W': 1, 'B-W I-W': 1}
+An Nam
+{'B-W I-W': 4, 'I-W I-W': 1}
+Về chế
+{'B-W I-W': 1, 'B-W B-W': 1}
+Chủ tịch
+{'B-W I-W': 47, 'I-W I-W': 2}
+chuyên chế
+{'I-W I-W': 3, 'B-W I-W': 3}
+Nhân dân
+{'B-W I-W': 4, 'I-W I-W': 3}
+đầu phiếu
+{'B-W I-W': 2, 'I-W I-W': 1}
+làm nên
+{'B-W B-W': 2, 'B-W I-W': 1}
+đoàn kết
+{'B-W I-W': 3, 'I-W I-W': 5}
+đế quốc
+{'I-W I-W': 1, 'B-W I-W': 1}
+tổng tuyển
+{'B-W I-W': 1, 'B-W B-W': 1}
+tuyển cử
+{'I-W I-W': 1, 'B-W I-W': 1}
+thiết thực
+{'I-W B-W': 1, 'B-W I-W': 3}
+cầm quyền
+{'B-W I-W': 7, 'I-W I-W': 1}
+hội họp
+{'B-W I-W': 7, 'I-W B-W': 1}
+đánh đổ
+{'B-W I-W': 1, 'B-W B-W': 1}
+đại nghị
+{'I-W I-W': 1, 'B-W I-W': 6}
+tín nhiệm
+{'B-W I-W': 6, 'I-W I-W': 5}
+tổ quốc
+{'I-W B-W': 1, 'B-W I-W': 1}
+tuân theo
+{'B-W B-W': 12, 'B-W I-W': 1}
+kì họp
+{'B-W B-W': 25, 'B-W I-W': 1}
+phúc quyết
+{'B-W B-W': 1, 'B-W I-W': 1}
+dân cử
+{'B-W I-W': 2, 'I-W I-W': 3, 'B-W B-W': 1}
+Viện kiểm
+{'B-W I-W': 21, 'B-W B-W': 1}
+kiểm sát
+{'I-W I-W': 22, 'B-W I-W': 9}
+tư sản
+{'B-W I-W': 7, 'I-W I-W': 2}
+vô sản
+{'B-W I-W': 4, 'I-W I-W': 4}
+nguyên lí
+{'I-W I-W': 1, 'B-W I-W': 2}
+ruộng đất
+{'I-W I-W': 4, 'B-W I-W': 1}
+định chế
+{'B-W I-W': 5, 'I-W B-W': 4}
+hội thảo
+{'B-W I-W': 2, 'I-W B-W': 2}
+Thương mại
+{'I-W I-W': 1, 'B-W I-W': 4}
+phá sản
+{'B-W I-W': 1, 'I-W I-W': 1}
+xoá đói
+{'B-W B-W': 1, 'B-W I-W': 1}
+Luật thuế
+{'B-W B-W': 1, 'B-W I-W': 1}
+Luật ban
+{'B-W B-W': 2, 'B-W I-W': 6}
+hành văn
+{'I-W B-W': 10, 'I-W I-W': 6, 'B-W I-W': 1}
+nội luật
+{'B-W I-W': 5, 'B-W B-W': 1}
+luật hoá
+{'I-W I-W': 7, 'B-W I-W': 2}
+hội đồng
+{'I-W I-W': 1, 'I-W B-W': 1, 'B-W I-W': 1}
+Xã hội
+{'B-W I-W': 2, 'I-W I-W': 9}
+thi công
+{'I-W B-W': 2, 'B-W I-W': 2}
+công vụ
+{'B-W I-W': 11, 'I-W I-W': 1}
+bước đi
+{'B-W B-W': 1, 'B-W I-W': 3}
+Thường vụ
+{'B-W I-W': 20, 'I-W I-W': 31}
+xuất phát
+{'I-W B-W': 1, 'B-W I-W': 12}
+qua lại
+{'B-W B-W': 1, 'B-W I-W': 1}
+dân sinh
+{'I-W I-W': 2, 'B-W I-W': 2}
+hội thẩm
+{'I-W B-W': 2, 'B-W I-W': 1}
+Dân tộc
+{'B-W I-W': 2, 'I-W I-W': 4}
+Kiểm sát
+{'I-W I-W': 1, 'B-W I-W': 1}
+Tổ quốc
+{'B-W I-W': 1, 'I-W I-W': 3}
+góp ý
+{'I-W B-W': 5, 'B-W I-W': 1}
+Đất đai
+{'I-W I-W': 1, 'B-W I-W': 1}
+nông nghiệp
+{'I-W I-W': 1, 'B-W I-W': 1}
+mỗi một
+{'B-W I-W': 3, 'B-W B-W': 3}
+sát thực
+{'B-W I-W': 1, 'I-W B-W': 1}
+Quốc triều
+{'B-W B-W': 1, 'B-W I-W': 1}
+ước lệ
+{'B-W I-W': 1, 'I-W B-W': 5}
+hình luật
+{'I-W I-W': 1, 'B-W I-W': 1}
+chủ nhân
+{'B-W I-W': 1, 'I-W I-W': 1}
+vũ trang
+{'B-W I-W': 1, 'I-W I-W': 1}
+2gram word: 2828
+2gram conflict: 235
+
+3gram 53822
+luật hình sự
+{'B-W I-W I-W': 37, 'I-W B-W I-W': 21, 'I-W I-W I-W': 24, 'B-W B-W I-W': 1}
+Bộ luật hình
+{'B-W I-W I-W': 24, 'B-W I-W B-W': 1}
+Bộ Chính trị
+{'B-W B-W I-W': 2, 'B-W I-W I-W': 4}
+tính giai cấp
+{'B-W B-W I-W': 1, 'B-W I-W I-W': 2}
+nhà làm luật
+{'B-W B-W B-W': 2, 'B-W I-W I-W': 3}
+quy phạm pháp
+{'B-W I-W I-W': 46, 'I-W I-W I-W': 6}
+Toà án nhân
+{'B-W I-W B-W': 22, 'B-W I-W I-W': 2}
+xã hội chủ
+{'B-W I-W I-W': 69, 'I-W I-W I-W': 4}
+Cộng hoà xã
+{'B-W I-W I-W': 4, 'B-W I-W B-W': 2}
+quyền tự do
+{'B-W B-W I-W': 26, 'B-W I-W I-W': 8, 'I-W B-W I-W': 1}
+quản lí nhà
+{'B-W I-W I-W': 21, 'B-W I-W B-W': 1}
+luật dân sự
+{'I-W B-W I-W': 6, 'I-W I-W I-W': 1, 'B-W I-W I-W': 1}
+Ban Bí thư
+{'B-W B-W I-W': 2, 'B-W I-W I-W': 2}
+Trung ương Đảng
+{'B-W I-W B-W': 2, 'B-W I-W I-W': 1, 'I-W I-W I-W': 1}
+Bộ luật Hình
+{'B-W I-W I-W': 3, 'B-W I-W B-W': 1}
+kinh tế thị
+{'B-W I-W I-W': 23, 'B-W I-W B-W': 1}
+phép vua thua
+{'B-W I-W I-W': 4, 'B-W B-W B-W': 1}
+giáo dục công
+{'B-W I-W B-W': 1, 'B-W I-W I-W': 1}
+hình sự hoá
+{'B-W I-W I-W': 35, 'I-W I-W I-W': 22}
+tội phạm hoá
+{'B-W I-W I-W': 23, 'I-W I-W I-W': 11}
+nhà lập pháp
+{'B-W B-W I-W': 3, 'B-W I-W I-W': 11}
+Luật hình sự
+{'B-W I-W I-W': 2, 'I-W B-W I-W': 1, 'I-W I-W I-W': 1}
+hành lang pháp
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 1}
+quyền sở hữu
+{'B-W B-W I-W': 7, 'B-W I-W I-W': 5}
+cơ chế thị
+{'B-W I-W I-W': 5, 'B-W I-W B-W': 1}
+Bộ Luật hình
+{'B-W I-W B-W': 1, 'B-W I-W I-W': 1}
+sở hữu trí
+{'B-W I-W I-W': 8, 'I-W I-W I-W': 1}
+xây dựng cơ
+{'B-W I-W I-W': 2, 'B-W I-W B-W': 1}
+chủ nghĩa hợp
+{'B-W I-W I-W': 64, 'B-W I-W B-W': 3}
+chủ nghĩa cộng
+{'B-W I-W I-W': 1, 'I-W I-W I-W': 1}
+chế độ quân
+{'B-W I-W I-W': 5, 'B-W I-W B-W': 2}
+Khế ước xã
+{'B-W I-W I-W': 2, 'B-W I-W B-W': 1}
+Nhóm Thanh Nghị
+{'B-W B-W I-W': 4, 'B-W I-W I-W': 1}
+nhà luật học
+{'B-W B-W I-W': 1, 'B-W I-W I-W': 1}
+quân chủ lập
+{'B-W I-W I-W': 1, 'I-W I-W I-W': 1}
+Về chế độ
+{'B-W I-W I-W': 1, 'B-W B-W I-W': 1}
+chế độ dân
+{'I-W I-W I-W': 1, 'B-W I-W B-W': 1, 'B-W I-W I-W': 2}
+Tuyên ngôn độc
+{'B-W I-W I-W': 3, 'B-W I-W B-W': 1}
+Việt Nam dân
+{'B-W I-W B-W': 14, 'B-W I-W I-W': 3}
+tổng tuyển cử
+{'B-W I-W I-W': 1, 'B-W B-W I-W': 1}
+chế độ đại
+{'B-W I-W B-W': 1, 'B-W I-W I-W': 1}
+cơ quan hành
+{'B-W I-W B-W': 10, 'B-W I-W I-W': 16}
+Hiến pháp 1946
+{'B-W I-W I-W': 24, 'B-W I-W B-W': 7}
+Chủ tịch nước
+{'B-W I-W I-W': 6, 'B-W I-W B-W': 16}
+cơ quan quyền
+{'B-W I-W I-W': 7, 'B-W I-W B-W': 3}
+luật quốc tế
+{'I-W B-W I-W': 8, 'B-W I-W I-W': 1}
+Hiệp định Marrakesh
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 8}
+Luật ban hành
+{'B-W B-W I-W': 2, 'B-W I-W I-W': 6}
+nội luật hoá
+{'B-W I-W I-W': 5, 'B-W B-W I-W': 1}
+Hiệp định GATS
+{'B-W I-W B-W': 1, 'B-W I-W I-W': 2}
+Bộ luật dân
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 1}
+Cộng hoà Xã
+{'B-W I-W B-W': 2, 'B-W I-W I-W': 9}
+Uỷ ban Thường
+{'B-W I-W B-W': 20, 'B-W I-W I-W': 31}
+Uỷ ban pháp
+{'B-W I-W B-W': 2, 'B-W I-W I-W': 2}
+Hội đồng Dân
+{'B-W I-W B-W': 2, 'B-W I-W I-W': 4}
+Mặt trận Tổ
+{'B-W I-W B-W': 1, 'B-W I-W I-W': 3}
+Uỷ ban Pháp
+{'B-W I-W I-W': 2, 'B-W I-W B-W': 1}
+Bộ luật tố
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 1}
+cách mạng tháng
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 2}
+Cách mạng tháng
+{'B-W I-W I-W': 1, 'B-W I-W B-W': 1}
+3gram word: 327
+3gram conflict: 60
+
+4gram 69624
+Bộ luật hình sự
+{'B-W I-W I-W I-W': 24, 'B-W I-W B-W I-W': 1}
+quy phạm pháp luật
+{'B-W I-W I-W I-W': 46, 'I-W I-W I-W I-W': 6}
+Toà án nhân dân
+{'B-W I-W B-W I-W': 22, 'B-W I-W I-W I-W': 2}
+xã hội chủ nghĩa
+{'B-W I-W I-W I-W': 69, 'I-W I-W I-W I-W': 4}
+Cộng hoà xã hội
+{'B-W I-W I-W I-W': 4, 'B-W I-W B-W I-W': 2}
+quản lí nhà nước
+{'B-W I-W I-W I-W': 21, 'B-W I-W B-W I-W': 1}
+Bộ luật Hình sự
+{'B-W I-W I-W I-W': 3, 'B-W I-W B-W I-W': 1}
+kinh tế thị trường
+{'B-W I-W I-W I-W': 23, 'B-W I-W B-W I-W': 1}
+giáo dục công dân
+{'B-W I-W B-W I-W': 1, 'B-W I-W I-W I-W': 1}
+hành lang pháp lí
+{'B-W I-W I-W I-W': 1, 'B-W I-W B-W I-W': 1}
+cơ chế thị trường
+{'B-W I-W I-W I-W': 5, 'B-W I-W B-W I-W': 1}
+Bộ Luật hình sự
+{'B-W I-W B-W I-W': 1, 'B-W I-W I-W I-W': 1}
+sở hữu trí tuệ
+{'B-W I-W I-W I-W': 8, 'I-W I-W I-W I-W': 1}
+chủ nghĩa hợp hiến
+{'B-W I-W I-W I-W': 64, 'B-W I-W B-W I-W': 3}
+chủ nghĩa cộng sản
+{'B-W I-W I-W I-W': 1, 'I-W I-W I-W I-W': 1}
+chế độ quân chủ
+{'B-W I-W I-W I-W': 5, 'B-W I-W B-W I-W': 1}
+Khế ước xã hội
+{'B-W I-W I-W I-W': 2, 'B-W I-W B-W I-W': 1}
+quân chủ lập hiến
+{'B-W I-W I-W I-W': 1, 'I-W I-W I-W I-W': 1}
+chế độ dân chủ
+{'I-W I-W I-W I-W': 1, 'B-W I-W I-W I-W': 2}
+Tuyên ngôn độc lập
+{'B-W I-W I-W I-W': 3, 'B-W I-W B-W I-W': 1}
+Việt Nam dân chủ
+{'B-W I-W B-W I-W': 14, 'B-W I-W I-W I-W': 3}
+Viện kiểm sát nhân
+{'B-W I-W I-W B-W': 12, 'B-W I-W I-W I-W': 1}
+cơ quan quyền lực
+{'B-W I-W I-W I-W': 7, 'B-W I-W B-W I-W': 3}
+Ban chấp hành trung
+{'B-W I-W I-W B-W': 1, 'B-W I-W I-W I-W': 2}
+Luật ban hành văn
+{'B-W B-W I-W B-W': 2, 'B-W I-W I-W I-W': 6}
+Bộ luật dân sự
+{'B-W I-W I-W I-W': 1, 'B-W I-W B-W I-W': 1}
+Cộng hoà Xã hội
+{'B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W': 9}
+Đảng cộng sản Việt
+{'B-W I-W I-W I-W': 4, 'B-W I-W I-W B-W': 1}
+Uỷ ban Thường vụ
+{'B-W I-W B-W I-W': 20, 'B-W I-W I-W I-W': 31}
+Uỷ ban pháp luật
+{'B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W': 2}
+Hội đồng Dân tộc
+{'B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W': 4}
+Mặt trận Tổ quốc
+{'B-W I-W B-W I-W': 1, 'B-W I-W I-W I-W': 3}
+Uỷ ban Pháp luật
+{'B-W I-W I-W I-W': 2, 'B-W I-W B-W I-W': 1}
+Bộ luật tố tụng
+{'B-W I-W I-W I-W': 1, 'B-W I-W B-W I-W': 1}
+cách mạng tháng Tám
+{'B-W I-W I-W I-W': 1, 'B-W I-W B-W B-W': 2}
+Cách mạng tháng Tám
+{'B-W I-W I-W I-W': 1, 'B-W I-W B-W B-W': 1}
+4gram word: 151
+4gram conflict: 36
+
+5gram 75940
+Cộng hoà xã hội chủ
+{'B-W I-W I-W I-W I-W': 4, 'B-W I-W B-W I-W I-W': 2}
+chế độ quân chủ chuyên
+{'B-W I-W I-W I-W B-W': 1, 'B-W I-W I-W I-W I-W': 3}
+Việt Nam dân chủ cộng
+{'B-W I-W B-W I-W B-W': 10, 'B-W I-W I-W I-W I-W': 3}
+Viện kiểm sát nhân dân
+{'B-W I-W I-W B-W I-W': 12, 'B-W I-W I-W I-W I-W': 1}
+Ban chấp hành trung ương
+{'B-W I-W I-W B-W I-W': 1, 'B-W I-W I-W I-W I-W': 2}
+Luật ban hành văn bản
+{'B-W B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W I-W': 6}
+Cộng hoà Xã hội Chủ
+{'B-W I-W B-W I-W B-W': 2, 'B-W I-W I-W I-W I-W': 9}
+Đảng cộng sản Việt Nam
+{'B-W I-W I-W I-W I-W': 4, 'B-W I-W I-W B-W I-W': 1}
+Uỷ ban Thường vụ Quốc
+{'B-W I-W B-W I-W B-W': 20, 'B-W I-W I-W I-W I-W': 31}
+Toà án nhân dân tối
+{'B-W I-W B-W I-W B-W': 7, 'B-W I-W I-W I-W I-W': 1, 'B-W I-W I-W I-W B-W': 1}
+5gram word: 50
+5gram conflict: 10
+
+6gram 78171
+Cộng hoà xã hội chủ nghĩa
+{'B-W I-W I-W I-W I-W I-W': 4, 'B-W I-W B-W I-W I-W I-W': 2}
+Việt Nam dân chủ cộng hoà
+{'B-W I-W B-W I-W B-W I-W': 10, 'B-W I-W I-W I-W I-W I-W': 3}
+Ban chấp hành trung ương Đảng
+{'B-W I-W I-W B-W I-W B-W': 1, 'B-W I-W I-W I-W I-W I-W': 2}
+Luật ban hành văn bản quy
+{'B-W B-W I-W B-W I-W B-W': 2, 'B-W I-W I-W I-W I-W I-W': 6}
+Cộng hoà Xã hội Chủ nghĩa
+{'B-W I-W B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W I-W I-W': 9}
+Uỷ ban Thường vụ Quốc hội
+{'B-W I-W B-W I-W B-W I-W': 20, 'B-W I-W I-W I-W I-W I-W': 31}
+Toà án nhân dân tối cao
+{'B-W I-W B-W I-W B-W I-W': 7, 'B-W I-W I-W I-W I-W I-W': 1, 'B-W I-W I-W I-W B-W I-W': 1}
+Viện kiểm sát nhân dân tối
+{'B-W I-W I-W B-W I-W B-W': 4, 'B-W I-W I-W I-W I-W I-W': 1}
+6gram word: 33
+6gram conflict: 8
+
+7gram 78368
+Cộng hoà xã hội chủ nghĩa Việt
+{'B-W I-W I-W I-W I-W I-W I-W': 4, 'B-W I-W B-W I-W I-W I-W B-W': 2}
+Luật ban hành văn bản quy phạm
+{'B-W B-W I-W B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W I-W I-W I-W': 6}
+Cộng hoà Xã hội Chủ nghĩa Việt
+{'B-W I-W B-W I-W B-W I-W B-W': 2, 'B-W I-W I-W I-W I-W I-W I-W': 9}
+Viện kiểm sát nhân dân tối cao
+{'B-W I-W I-W B-W I-W B-W I-W': 4, 'B-W I-W I-W I-W I-W I-W I-W': 1}
+7gram word: 11
+7gram conflict: 4
+
+8gram 77685
+Cộng hoà xã hội chủ nghĩa Việt Nam
+{'B-W I-W I-W I-W I-W I-W I-W I-W': 4, 'B-W I-W B-W I-W I-W I-W B-W I-W': 2}
+Luật ban hành văn bản quy phạm pháp
+{'B-W B-W I-W B-W I-W B-W I-W I-W': 2, 'B-W I-W I-W I-W I-W I-W I-W I-W': 6}
+Cộng hoà Xã hội Chủ nghĩa Việt Nam
+{'B-W I-W B-W I-W B-W I-W B-W I-W': 2, 'B-W I-W I-W I-W I-W I-W I-W I-W': 9}
+8gram word: 4
+8gram conflict: 3
+
+9gram 76436
+Luật ban hành văn bản quy phạm pháp luật
+{'B-W B-W I-W B-W I-W B-W I-W I-W I-W': 2, 'B-W I-W I-W I-W I-W I-W I-W I-W I-W': 6}
+9gram word: 1
+9gram conflict: 1
+
+10gram 74885
+10gram word: 0
+10gram conflict: 0
+
+11gram 73156
+11gram word: 0
+11gram conflict: 0
+
+12gram 71342
+12gram word: 0
+12gram conflict: 0
+
+13gram 69474
+13gram word: 0
+13gram conflict: 0
+
+14gram 67578
+14gram word: 0
+14gram conflict: 0
