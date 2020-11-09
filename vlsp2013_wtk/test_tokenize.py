@@ -1,7 +1,6 @@
-from regex_tokenize import tokenize as pure_tokenize
-from underthesea.word_tokenize.regex_tokenize import tokenize
+from vlsp2013_wtk.regex_tokenize import tokenize as pure_tokenize
 
-f = open("data/UNEWS-100K-V1.txt")
+f = open("../data/UNEWS-100K-V1.txt")
 text = 'Còn ngư dân thì còn bám biển, ông Trọng khẳng định. Tp. ... => =))) http://abc.com abc.com@gmail.com #abcajla 10 10.20 100,200,300 10h20 10:20 20/10 20-10-2020 10/1995 '
 text = 'Ông được bổ nhiệm vị trí Giám đốc Sở TN&MT; Yên Bái từ ngày 9/9/2016. H&M'
 text = 'Cuối cùng Ban giám khảo đã chấm ba giải A trang trí mâm ngũ quả, gồm: PA65, PA72 và PV24; ba giải A trang trí mâm cỗ thuộc về PX14, PC67 và Báo CATP.HCM; ngoài ra BTC còn trao 6 giải B và 6 giải C cho các đội dự thi.'

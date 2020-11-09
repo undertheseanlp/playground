@@ -1,7 +1,7 @@
 import shutil
 from os import makedirs
 
-from regex_tokenize import tokenize
+from vlsp2013_wtk.regex_tokenize import tokenize
 
 stat_folder = "stats"
 filename = "data/UNEWS-100K-V1.txt"
