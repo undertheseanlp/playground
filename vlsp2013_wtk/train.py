@@ -1,5 +1,6 @@
+from os.path import join
 from underthesea.datasets.data import DataReader
-from underthesea.datasets.vlsp2013_wtk_r2 import VLSP2013_WTK_R2
+from underthesea.file_utils import CACHE_ROOT, DATASETS_FOLDER
 from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
 from underthesea.trainers import ModelTrainer
 
@@ -21,11 +22,10 @@ features = [
     "T[-2,-1].is_in_dict", "T[-1,0].is_in_dict", "T[0,1].is_in_dict", "T[1,2].is_in_dict",
     "T[-2,0].is_in_dict", "T[-1,1].is_in_dict", "T[0,2].is_in_dict",
 ]
-# corpus = VLSP2013_WTK_R2()
 tagger = CRFSequenceTagger(features)
-corpus = DataReader.load_tagged_corpus("/home/anhv/.underthesea/datasets/VLSP2013-WTK-R2",
+corpus = DataReader.load_tagged_corpus(join(DATASETS_FOLDER, "VLSP2013-WTK-R2"),
                                        train_file="train.txt",
-                                       test_file="test.txt")
+                                       test_file="test.txt").downsample(0.01)
 trainer = ModelTrainer(tagger, corpus)
 
 params = {
@@ -37,4 +37,4 @@ params = {
     'feature.possible_states': True,
 }
 
-trainer.train("models/wtk_crf", params)
+trainer.train("models/wtk_crf_2", params)
