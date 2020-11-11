@@ -1,10 +1,7 @@
 from pathlib import Path
-
 import pycrfsuite
 import yaml
 from underthesea.file_utils import CACHE_ROOT
-
-# underthesea.models.crf_sequence_tagger
 from underthesea.transformer.tagged import TaggedTransformer
 from underthesea.word_tokenize import tokenize
 
@@ -13,15 +10,13 @@ class CRFSequenceTagger:
     def __init__(self, features=None, estimator=None):
         self.features = features
         self.estimator = None
+        self.transformer = None
 
     def load(self, base_path):
         print(base_path)
         model_path = str(Path(base_path) / "model.tmp")
         estimator = pycrfsuite.Tagger()
         estimator.open(model_path)
-        self.estimator = estimator
-
-    def predict(self, tokens):
         features = [
             # word unigram and bigram and trigram
             "T[-2]", "T[-1]", "T[0]", "T[1]", "T[2]",
@@ -41,8 +36,12 @@ class CRFSequenceTagger:
             "T[-2,0].is_in_dict", "T[-1,1].is_in_dict", "T[0,2].is_in_dict",
         ]
         transformer = TaggedTransformer(features)
+        self.transformer = transformer
+        self.estimator = estimator
+
+    def predict(self, tokens):
         tokens = [(token, "X") for token in tokens]
-        x = transformer.transform([tokens])[0]
+        x = self.transformer.transform([tokens])[0]
         tags = self.estimator.tag(x)
         return tags
 
