@@ -26,7 +26,8 @@ if __name__ == '__main__':
     tagger = CRFSequenceTagger(features)
     corpus = DataReader.load_tagged_corpus(join(DATASETS_FOLDER, "VLSP2013-WTK-R2"),
                                            train_file="train.txt",
-                                           test_file="test.txt").downsample(0.01)
+                                           test_file="test.txt")
+    # corpus = corpus.downsample(0.01)
     trainer = ModelTrainer(tagger, corpus)
 
     params = {
