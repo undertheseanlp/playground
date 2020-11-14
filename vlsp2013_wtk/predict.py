@@ -17,10 +17,9 @@ def load_model(base_path):
     return None
 
 
-def word_tokenize(sentence):
-    global wtk_model
+def word_tokenize(tagger, sentence):
     tokens = tokenize(sentence)
-    tags = wtk_model.predict(tokens)
+    tags = tagger.predict(tokens)
     output = []
     for tag, token in zip(tags, tokens):
         if tag == "I-W":
@@ -34,7 +33,7 @@ def word_tokenize(sentence):
 
 if __name__ == '__main__':
     base_path = Path(CACHE_ROOT) / "models/wtk_crf_2"
-    wtk_model = load_model(base_path)
+    tagger = load_model(base_path)
     sentence = 'Chàng trai 9X Quảng Trị khởi nghiệp từ nấm sò'
-    output = word_tokenize(sentence)
+    output = word_tokenize(tagger, sentence)
     print(output)
