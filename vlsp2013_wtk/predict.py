@@ -9,7 +9,6 @@ def load_model(base_path):
     with open(Path(base_path) / "model.metadata", "r") as f:
         metadata = yaml.safe_load(f)
     model_type = metadata["model"]
-    print(model_type)
     if model_type == "CRFSequenceTagger":
         model = CRFSequenceTagger()
         model.load(base_path)
