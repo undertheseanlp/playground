@@ -1,8 +1,9 @@
 from pathlib import Path
 import yaml
 from underthesea.file_utils import CACHE_ROOT
-from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
 from underthesea.word_tokenize import tokenize
+#from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
+from external import CRFSequenceTagger
 
 
 def load_model(base_path):
