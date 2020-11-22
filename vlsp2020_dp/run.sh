@@ -1,0 +1,1 @@
+python conll18_ud_eval.py /home/anhv/.underthesea/datasets/VLSP2020-DP-O/VTB_400_R1.txt out.conll
