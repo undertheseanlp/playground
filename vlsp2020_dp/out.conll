@@ -950,9 +950,8 @@
 14	bắt	bắt	VERB	V	-	11	advcl:objective	_	_
 15	chồng	chồng	N	N	-	14	obj	_	_
 16	,	,	PUNCT	PUNCT	-	17	punct	_	_
-17	bắt	bắt	VERB	V	-	5	conj	_	_
-18	vợ	vợ	N	N	-	17	obj	_	_
-19	.	.	PUNCT	PUNCT	-	5	punct	_	_
+17	bắt vợ	bắt vợ	VERB	V	-	5	conj	_	_
+18	.	.	PUNCT	PUNCT	-	5	punct	_	_
 
 1	Lẽ ra	lẽ ra	ADV	Adv	-	10	advmod	_	_
 2	những	những	DET	Det	-	3	det	_	_
