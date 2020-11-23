@@ -231,7 +231,7 @@
 6	"	"	PUNCT	PUNCT	-	5	punct	_	_
 7	.	.	PUNCT	PUNCT	-	5	punct	_	_
 
-1	hàng họ	hàng họ	N	N	-	0	ROOT	_	_
+1	hàng họ	hàng họ	N	N	-	0	root	_	_
 2	và	và	CONJ	CC	-	3	cc	_	_
 3	cửa hàng	cửa hàng	N	N	-	1	conj	_	_
 4	.	.	PUNCT	PUNCT	-	1	punct	_	_
@@ -913,9 +913,9 @@
 4	chẳng	chẳng	ADV	Adv	-	5	advmod:neg	_	_
 5	thấy	thấy	VERB	V	-	2	xcomp	_	_
 6	gì	gì	PRON	Pro	-	5	obj	_	_
-7	,	,	PUNCT	PUNCT	-	0	ROOT	_	_
+7	,	,	PUNCT	PUNCT	-	9	punct	_	_
 8	trong	trong	ADP	Pre	-	9	case	_	_
-9	khi	khi	N	N	-	0	ROOT	_	_
+9	khi	khi	N	N	-	2	obl:tmod	_	_
 10	vợ	vợ	N	N	-	15	nsubj	_	_
 11	và	và	CONJ	CC	-	13	cc	_	_
 12	đàn	đàn	N	Nc	-	13	det:clf	_	_
@@ -1506,12 +1506,12 @@
 1	nhân chứng	nhân chứng	N	N	-	3	nsubj	_	_
 2	Lê Huy Ngọ	lê huy ngọ	PROPN	NNP	-	1	nmod	_	_
 3	xác nhận	xác nhận	VERB	V	-	0	root	_	_
-4	:	:	PUNCT	PUNCT	-	0	ROOT	_	_
+4	:	:	PUNCT	PUNCT	-	9	punct	_	_
 5	"	"	PUNCT	PUNCT	-	9	punct	_	_
 6	anh	anh	N	Nc	-	7	det:clf	_	_
 7	Hà	hà	PROPN	NNP	-	9	nsubj	_	_
 8	là	là	AUX	AUX	-	9	cop	_	_
-9	người	người	N	N	-	0	ROOT	_	_
+9	người	người	N	N	-	3	parataxis	_	_
 10	làm việc	làm việc	VERB	V	-	9	acl:subj	_	_
 11	có	có	VERB	V	-	13	csubj:vsubj	_	_
 12	trách nhiệm	trách nhiệm	N	N	-	11	obj	_	_
@@ -1673,9 +1673,9 @@
 40	mạo hiểm	mạo hiểm	ADJ	Adj	-	39	compound:amod	_	_
 41	.	.	PUNCT	PUNCT	-	6	punct	_	_
 
-1	Còn	còn	SCONJ	SC	-	0	ROOT	_	_
+1	Còn	còn	SCONJ	SC	-	3	cc	_	_
 2	những	những	DET	Det	-	3	det	_	_
-3	năm	năm	N	N	-	0	ROOT	_	_
+3	năm	năm	N	N	-	0	root	_	_
 4	trước	trước	N	N	-	3	nmod	_	_
 5	đó	đó	PRON	Pro	-	4	det:pmod	_	_
 6	?	?	PUNCT	PUNCT	-	3	punct	_	_
@@ -1929,7 +1929,7 @@
 20	sổ đỏ	sổ đỏ	N	N	-	19	obj	_	_
 21	.	.	PUNCT	PUNCT	-	13	punct	_	_
 
-1	phía	phía	N	N	-	0	ROOT	_	_
+1	phía	phía	N	N	-	0	root	_	_
 2	sau	sau	N	N	-	1	compound	_	_
 3	những	những	DET	Det	-	5	det	_	_
 4	cánh	cánh	N	Nc	-	3	clf	_	_
@@ -2480,7 +2480,7 @@
 46	.	.	PUNCT	PUNCT	-	14	punct	_	_
 
 1	Khách hàng	khách hàng	N	N	-	0	root	_	_
-2	.	.	PUNCT	PUNCT	-	0	ROOT	_	_
+2	.	.	PUNCT	PUNCT	-	1	punct	_	_
 
 1	điều	điều	N	N	-	2	nsubj	_	_
 2	khiến	khiến	VERB	V	-	0	root	_	_
@@ -3101,7 +3101,7 @@
 
 1	từ	từ	ADP	Pre	-	3	case	_	_
 2	cú	cú	N	Nc	-	3	det:clf	_	_
-3	sốc	sốc	N	N	-	0	ROOT	_	_
+3	sốc	sốc	N	N	-	0	root	_	_
 4	đầu	đầu	N	N	-	3	nmod	_	_
 5	đời	đời	N	N	-	4	nmod	_	_
 6	.	.	PUNCT	PUNCT	-	3	punct	_	_
@@ -3165,7 +3165,7 @@
 53	RBKT	rbkt	PUNCT	PUNCT	-	38	punct	_	_
 54	.	.	PUNCT	PUNCT	-	19	punct	_	_
 
-1	quần soóc	quần soóc	N	N	-	0	ROOT	_	_
+1	quần soóc	quần soóc	N	N	-	0	root	_	_
 2	,	,	PUNCT	PUNCT	-	3	punct	_	_
 3	áo thun	áo thun	N	N	-	1	list	_	_
 4	Adidas	adidas	PROPN	NNP	-	3	nmod	_	_
@@ -4035,7 +4035,7 @@
 22	xả thân	xả thân	VERB	V	-	19	ccomp	_	_
 23	vì	vì	ADP	Pre	-	24	case	_	_
 24	đại nghĩa	đại nghĩa	N	N	-	22	obl:comp	_	_
-25	để	để	ADP	Pre	-	0	ROOT	_	_
+25	để	để	ADP	Pre	-	39	mark:pcomp	_	_
 26	rồi	rồi	SCONJ	SC	-	29	cc	_	_
 27	gia đình	gia đình	N	N	-	29	nsubj	_	_
 28	vợ con	vợ con	N	N	-	27	nmod	_	_
@@ -4049,7 +4049,7 @@
 36	như	như	SCONJ	SC	-	37	case	_	_
 37	thế	thế	PRON	Pro	-	31	obl	_	_
 38	sao	sao	PART	Prt	-	31	discourse	_	_
-39	!	!	PUNCT	PUNCT	-	0	ROOT	_	_
+39	!	!	PUNCT	PUNCT	-	7	advcl:objective	_	_
 
 1	trong	trong	ADP	Pre	-	2	case	_	_
 2	lúc	lúc	N	N	-	5	obl:tmod	_	_
@@ -4388,8 +4388,8 @@
 20	chỉ	chỉ	SCONJ	SC	-	22	mark	_	_
 21	thực hiện	thực hiện	ADV	Adv	-	22	advmod	_	_
 22	có	có	VERB	V	-	17	obj	_	_
-23	1	1	PART	Prt	-	0	ROOT	_	_
-24	,	,	NUM	Num	-	0	ROOT	_	_
+23	1	1	PART	Prt	-	24	discourse	_	_
+24	,	,	NUM	Num	-	4	conj	_	_
 25	2	2	PUNCT	PUNCT	-	26	punct	_	_
 26	.	.	NUM	Num	-	24	root	_	_
 
@@ -4510,7 +4510,7 @@
 9	bất ngờ	bất ngờ	ADJ	Adj	-	2	acomp	_	_
 10	.	.	PUNCT	PUNCT	-	2	punct	_	_
 
-1	mái	mái	N	N	-	0	ROOT	_	_
+1	mái	mái	N	N	-	0	root	_	_
 2	tranh	tranh	N	N	-	1	compound	_	_
 3	nghèo	nghèo	ADJ	Adj	-	1	amod	_	_
 4	cho	cho	ADP	Pre	-	5	case	_	_
@@ -4518,7 +4518,7 @@
 6	mồ côi	mồ côi	ADJ	Adj	-	5	amod	_	_
 7	.	.	PUNCT	PUNCT	-	1	punct	_	_
 
-1	khi	khi	N	N	-	0	ROOT	_	_
+1	khi	khi	N	N	-	0	root	_	_
 2	"	"	PUNCT	PUNCT	-	6	punct	_	_
 3	rừng	rừng	N	N	-	6	nsubj	_	_
 4	xưa	xưa	ADJ	Adj	-	3	amod	_	_
@@ -4547,14 +4547,14 @@
 
 1	Lại	lại	ADV	Adv	-	3	advmod	_	_
 2	một	một	NUM	Num	-	3	nummod	_	_
-3	đòn	đòn	N	N	-	0	ROOT	_	_
+3	đòn	đòn	N	N	-	0	root	_	_
 4	nữa	nữa	PART	Prt	-	3	discourse	_	_
 5	của	của	ADP	Pre	-	7	case	_	_
 6	con	con	N	Nc	-	7	det:clf	_	_
 7	ô	ô	N	N	-	3	nmod:poss	_	_
 8	.	.	PUNCT	PUNCT	-	3	punct	_	_
 
-1	đi	đi	VERB	V	-	0	ROOT	_	_
+1	đi	đi	VERB	V	-	0	root	_	_
 2	từ	từ	ADP	Pre	-	3	case	_	_
 3	khó	khó	N	N	-	1	obl	_	_
 4	nghèo	nghèo	ADJ	Adj	-	3	amod	_	_
@@ -4671,7 +4671,7 @@
 7	người	người	N	N	-	0	root	_	_
 8	.	.	PUNCT	PUNCT	-	7	punct	_	_
 
-1	sài gòn	sài gòn	PROPN	NNP	-	0	ROOT	_	_
+1	sài gòn	sài gòn	PROPN	NNP	-	0	root	_	_
 2	hàng hiệu	hàng hiệu	N	N	-	1	nmod	_	_
 3	thể thao	thể thao	N	N	-	2	nmod	_	_
 4	.	.	PUNCT	PUNCT	-	1	punct	_	_
@@ -5940,7 +5940,7 @@
 8	đã	đã	ADV	Adv	-	9	advmod	_	_
 9	là	là	AUX	AUX	-	11	cop	_	_
 10	một	một	NUM	Num	-	11	nummod	_	_
-11	minh chứng	minh chứng	N	N	-	0	ROOT	_	_
+11	minh chứng	minh chứng	N	N	-	0	root	_	_
 12	tiêu biểu	tiêu biểu	ADJ	Adj	-	11	amod	_	_
 13	cho	cho	ADP	Pre	-	14	case	_	_
 14	triết lý	triết lý	N	N	-	11	obl:comp	_	_
@@ -6052,8 +6052,8 @@
 28	thì	thì	SCONJ	SC	-	29	mark	_	_
 29	sai	sai	ADJ	Adj	-	9	advcl	_	_
 30	càng	càng	ADV	Adv	-	31	advmod	_	_
-31	nhiều	nhiều	ADJ	Adj	-	0	ROOT	_	_
-32	.	.	PUNCT	PUNCT	-	0	ROOT	_	_
+31	nhiều	nhiều	ADJ	Adj	-	4	acomp	_	_
+32	.	.	PUNCT	PUNCT	-	31	punct	_	_
 
 1	tại	tại	ADP	Pre	-	3	case	_	_
 2	các	các	DET	Det	-	3	det	_	_
@@ -6554,9 +6554,9 @@
 6	không	không	ADV	Adv	-	7	advmod:neg	_	_
 7	trả lời	trả lời	VERB	V	-	0	root	_	_
 8	dứt khoát	dứt khoát	ADJ	Adj	-	7	acomp	_	_
-9	,	,	PUNCT	PUNCT	-	0	ROOT	_	_
+9	,	,	PUNCT	PUNCT	-	11	punct	_	_
 10	cứ	cứ	ADV	Adv	-	11	advmod	_	_
-11	hẹn lần hẹn lữa	hẹn lần hẹn lữa	VERB:G	VERB:G	-	0	ROOT	_	_
+11	hẹn lần hẹn lữa	hẹn lần hẹn lữa	VERB:G	VERB:G	-	7	conj	_	_
 12	về	về	ADP	Pre	-	13	case	_	_
 13	việc	việc	N	N	-	11	obl:about	_	_
 14	sẽ	sẽ	ADV	Adv	-	15	advmod	_	_
@@ -6578,7 +6578,7 @@
 2	đúng	đúng	ADJ	Adj	-	5	csubj:asubj	_	_
 3	là	là	AUX	AUX	-	5	cop	_	_
 4	cô	cô	N	Nc	-	5	det:clf	_	_
-5	nhân viên	nhân viên	N	N	-	0	ROOT	_	_
+5	nhân viên	nhân viên	N	N	-	0	root	_	_
 6	may mắn	may mắn	ADJ	Adj	-	5	amod	_	_
 7	của	của	ADP	Pre	-	8	case	_	_
 8	đại lý	đại lý	N	N	-	5	nmod:poss	_	_
@@ -6775,7 +6775,7 @@
 22	"	"	PUNCT	PUNCT	-	7	punct	_	_
 23	.	.	PUNCT	PUNCT	-	7	punct	_	_
 
-1	làng	làng	N	N	-	0	ROOT	_	_
+1	làng	làng	N	N	-	0	root	_	_
 2	của	của	ADP	Pre	-	3	case	_	_
 3	mình	mình	N	N	-	1	nmod:poss	_	_
 4	mà	mà	PART	Prt	-	1	discourse	_	_
@@ -6928,7 +6928,7 @@
 1	Cũng	cũng	ADV	Adv	-	4	advmod	_	_
 2	ở	ở	ADP	Pre	-	4	case	_	_
 3	một	một	NUM	Num	-	4	nummod	_	_
-4	đại lý	đại lý	N	N	-	0	ROOT	_	_
+4	đại lý	đại lý	N	N	-	0	root	_	_
 5	của	của	ADP	Pre	-	6	case	_	_
 6	Adidas	adidas	PROPN	NNP	-	4	nmod:poss	_	_
 7	trên	trên	ADP	Pre	-	8	case	_	_
@@ -7135,7 +7135,7 @@
 14	thôi	thôi	PART	Prt	-	12	discourse	_	_
 15	.	.	PUNCT	PUNCT	-	4	punct	_	_
 
-1	phận	phận	N	N	-	0	ROOT	_	_
+1	phận	phận	N	N	-	0	root	_	_
 2	"	"	PUNCT	PUNCT	-	3	punct	_	_
 3	hồng nhan	hồng nhan	N	N	-	1	nmod	_	_
 4	"	"	PUNCT	PUNCT	-	3	punct	_	_
@@ -7296,10 +7296,10 @@
 20	năm	năm	N	N	-	14	obl:tmod	_	_
 21	.	.	PUNCT	PUNCT	-	8	punct	_	_
 
-1	"	"	PUNCT	PUNCT	-	0	ROOT	_	_
-2	Thế	thế	SCONJ	SC	-	0	ROOT	_	_
+1	"	"	PUNCT	PUNCT	-	4	punct	_	_
+2	Thế	thế	SCONJ	SC	-	4	cc	_	_
 3	các	các	DET	Det	-	4	det	_	_
-4	bạn	bạn	N	N	-	0	ROOT	_	_
+4	bạn	bạn	N	N	-	0	root	_	_
 5	khác	khác	ADJ	Adj	-	4	amod	_	_
 6	trong	trong	ADP	Pre	-	7	case	_	_
 7	đội	đội	N	N	-	4	nmod:poss	_	_
@@ -8028,11 +8028,11 @@
 19	đề nghị	đề nghị	N	N	-	14	obj	_	_
 20	của	của	ADP	Pre	-	21	case	_	_
 21	DN	dn	N	Ny	-	19	nmod:poss	_	_
-22	và	và	CONJ	CC	-	0	ROOT	_	_
+22	và	và	CONJ	CC	-	26	cc	_	_
 23	nếu	nếu	SCONJ	SC	-	24	mark	_	_
-24	xem xét	xem xét	VERB	V	-	0	ROOT	_	_
+24	xem xét	xem xét	VERB	V	-	26	advcl	_	_
 25	"	"	PUNCT	PUNCT	-	26	punct	_	_
-26	thấy	thấy	VERB	V	-	0	ROOT	_	_
+26	thấy	thấy	VERB	V	-	4	conj	_	_
 27	đúng	đúng	ADJ	Adj	-	26	acomp	_	_
 28	thì	thì	SCONJ	SC	-	29	mark	_	_
 29	giao	giao	VERB	V	-	26	ccomp	_	_
@@ -8041,7 +8041,7 @@
 32	lĩnh vực	lĩnh vực	N	N	-	31	obj	_	_
 33	ký	ký	VERB	V	-	29	xcomp	_	_
 34	"	"	PUNCT	PUNCT	-	29	punct	_	_
-35	.	.	PUNCT	PUNCT	-	0	ROOT	_	_
+35	.	.	PUNCT	PUNCT	-	26	punct	_	_
 
 1	12	12	NUM	Num	-	2	nummod	_	_
 2	người	người	N	N	-	3	nsubj	_	_
@@ -8384,10 +8384,10 @@
 18	khoản	khoản	N	N	-	16	obj	_	_
 19	vay	vay	VERB	V	-	18	acl:subj	_	_
 20	NH	nh	N	Ny	-	19	obj	_	_
-21	cũng	cũng	SCONJ	SC	-	0	ROOT	_	_
+21	cũng	cũng	SCONJ	SC	-	24	cc	_	_
 22	như	như	SCONJ	SC	-	24	case	_	_
 23	những	những	DET	Det	-	24	det	_	_
-24	khoản	khoản	N	N	-	0	ROOT	_	_
+24	khoản	khoản	N	N	-	10	conj	_	_
 25	vay	vay	VERB	V	-	24	compound:vmod	_	_
 26	của	của	ADP	Pre	-	28	case	_	_
 27	các	các	DET	Det	-	28	det	_	_
@@ -8652,8 +8652,8 @@
 36	về	về	ADP	Pre	-	37	case	_	_
 37	quản lý	quản lý	VERB	V	-	34	acl:subj	_	_
 38	DN	dn	N	Ny	-	37	obj	_	_
-39	,	,	PUNCT	PUNCT	-	0	ROOT	_	_
-40	việc	việc	N	Nc	-	0	ROOT	_	_
+39	,	,	PUNCT	PUNCT	-	40	punct	_	_
+40	việc	việc	N	Nc	-	2	parataxis	_	_
 41	thực hiện	thực hiện	VERB	V	-	40	acl:subj	_	_
 42	chế độ	chế độ	N	N	-	41	obj	_	_
 43	báo cáo	báo cáo	VERB	V	-	42	acl:subj	_	_
@@ -8807,7 +8807,7 @@
 28	.	.	PUNCT	PUNCT	-	6	punct	_	_
 
 1	Hầu hết	hầu hết	DET	Det	-	2	det	_	_
-2	khu	khu	N	N	-	0	ROOT	_	_
+2	khu	khu	N	N	-	0	root	_	_
 3	rừng	rừng	N	N	-	2	compound	_	_
 4	bị	bị	AUX	AUX	-	5	aux:pass	_	_
 5	phá	phá	VERB	V	-	2	acl:subj	_	_
@@ -9202,9 +9202,9 @@
 7	nằm	nằm	VERB	V	-	4	ccomp	_	_
 8	ở	ở	ADP	Pre	-	9	case	_	_
 9	Dankia	dankia	PROPN	NNP	-	7	obl:comp	_	_
-10	,	,	PUNCT	PUNCT	-	0	ROOT	_	_
-11	mà	mà	SCONJ	SC	-	0	ROOT	_	_
-12	bên	bên	N	N	-	0	ROOT	_	_
+10	,	,	PUNCT	PUNCT	-	12	punct	_	_
+11	mà	mà	SCONJ	SC	-	12	mark	_	_
+12	bên	bên	N	N	-	4	conj	_	_
 13	suối	suối	N	N	-	12	nmod	_	_
 14	Lat	lat	PROPN	NNP	-	13	compound	_	_
 15	LBKT	lbkt	PUNCT	PUNCT	-	16	punct	_	_
@@ -9912,7 +9912,7 @@
 12	không	không	ADV	Adv	-	13	advmod:neg	_	_
 13	đôi	đôi	N	N	-	15	nsubj	_	_
 14	nào	nào	PRON	Pro	-	13	det:pmod	_	_
-15	dưới	dưới	ADJ	Adj	-	0	ROOT	_	_
+15	dưới	dưới	ADJ	Adj	-	5	amod	_	_
 16	1 triệu	1 triệu	NUM	Num	-	15	nummod	_	_
 17	"	"	PUNCT	PUNCT	-	15	punct	_	_
 18	.	.	PUNCT	PUNCT	-	15	punct	_	_
@@ -9961,7 +9961,7 @@
 21	vị trí	vị trí	N	N	-	20	obj	_	_
 22	.	.	PUNCT	PUNCT	-	2	punct	_	_
 
-1	nỗ lực	nỗ lực	N	N	-	0	ROOT	_	_
+1	nỗ lực	nỗ lực	N	N	-	0	root	_	_
 2	học tập	học tập	VERB	V	-	1	compound:vmod	_	_
 3	và	và	CONJ	CC	-	4	cc	_	_
 4	năng lực	năng lực	N	N	-	1	conj	_	_
@@ -10145,10 +10145,10 @@
 11	kỹ năng	kỹ năng	N	N	-	10	obj	_	_
 12	cho	cho	ADP	Pre	-	13	case	_	_
 13	NKT	nkt	N	Ny	-	10	obl:comp	_	_
-14	"	"	PUNCT	PUNCT	-	0	ROOT	_	_
+14	"	"	PUNCT	PUNCT	-	25	punct	_	_
 15	của	của	ADP	Pre	-	16	case	_	_
-16	chị	chị	N	N	-	0	ROOT	_	_
-17	được	được	AUX	AUX	-	0	ROOT	_	_
+16	chị	chị	N	N	-	25	nsubj:pass	_	_
+17	được	được	AUX	AUX	-	25	aux:pass	_	_
 18	hội đồng	hội đồng	N	N	-	25	obl:agent	_	_
 19	khoa học	khoa học	N	N	-	18	nmod	_	_
 20	tại	tại	ADP	Pre	-	21	case	_	_
@@ -10156,7 +10156,7 @@
 22	Kansas	kansas	PROPN	NNP	-	21	compound	_	_
 23	đánh giá	đánh giá	VERB	V	-	21	compound:vmod	_	_
 24	cao	cao	ADJ	Adj	-	21	amod	_	_
-25	.	.	PUNCT	PUNCT	-	0	ROOT	_	_
+25	.	.	PUNCT	PUNCT	-	7	punct	_	_
 
 1	Chưa	chưa	ADV	Adv	-	2	advmod:neg	_	_
 2	trận	trận	N	N	-	5	obl	_	_
@@ -10342,10 +10342,10 @@
 13	tôm	tôm	N	N	-	12	nmod	_	_
 14	,	,	PUNCT	PUNCT	-	15	punct	_	_
 15	doanh thu	doanh thu	N	N	-	8	conj	_	_
-16	trên	trên	ADJ	Adj	-	0	ROOT	_	_
-17	1 tỉ	1 tỉ	NUM	Num	-	0	ROOT	_	_
-18	,	,	PUNCT	PUNCT	-	0	ROOT	_	_
-19	lãi ròng	lãi ròng	N	N	-	0	ROOT	_	_
+16	trên	trên	ADJ	Adj	-	19	advmod:adj	_	_
+17	1 tỉ	1 tỉ	NUM	Num	-	19	nummod	_	_
+18	,	,	PUNCT	PUNCT	-	19	punct	_	_
+19	lãi ròng	lãi ròng	N	N	-	8	obj	_	_
 20	500	500	NUM	Num	-	23	nummod	_	_
 21	-	-	PUNCT	PUNCT	-	20	flat:number	_	_
 22	700 triệu	700 triệu	NUM	Num	-	20	flat:number	_	_

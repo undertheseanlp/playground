@@ -12,11 +12,11 @@ model_file = f'{MODELS_FOLDER}/{model_name}'
 
 VLSP2020_DP_FOLDER = f'{DATASETS_FOLDER}/VLSP2020-DP-R1'
 train_file = f'{VLSP2020_DP_FOLDER}/DP-Package2.18.11.2020.txt'
-train_cmd = f'java -jar {MALT_PARSER}/maltparser-1.9.2.jar -c {model_name} -i {train_file} -m learn'
+train_cmd = f'java -jar {MALT_PARSER}/maltparser-1.9.2.jar -nt true -c {model_name} -i {train_file} -m learn'
 print(train_cmd)
 os.system(train_cmd)
 
 test_file = f'{VLSP2020_DP_FOLDER}/VTB_400.txt'
-test_cmd = f'java -jar {MALT_PARSER}/maltparser-1.9.2.jar -c {model_name} -i {test_file} -o out.conll -m parse'
+test_cmd = f'java -jar {MALT_PARSER}/maltparser-1.9.2.jar -c {model_name} -i {test_file} -o out.conll -nt true -m parse'
 print(test_cmd)
 os.system(test_cmd)
