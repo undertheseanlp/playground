@@ -8,9 +8,43 @@ from underthesea.transformer.tagged_feature import functions
 
 # code from
 # underthesea.transformer.tagged import TaggedTransformer
+class FeatureTemplate:
+    def __init__(self, template):
+        token_syntax = template
+        matched = re.match(
+            "T\[(?P<index1>\-?\d+)(\,(?P<index2>\-?\d+))?\](\[(?P<column>.*)\])?(\.(?P<function>.*))?",
+            template)
+        column = matched.group("column")
+        column = int(column) if column else 0
+        index1 = int(matched.group("index1"))
+        index2 = matched.group("index2")
+        if index2:
+            index2 = int(index2)
+            assert index2 - index1 <= 2  # don't support ngram with n > 3
+            if index2 - index1 == 1:
+                self.is_bigram = True
+            if index2 - index1 == 2:
+                self.is_trigram = True
+        func = matched.group("function")
+        self.index1 = index1
+        self.index2 = index2
+        self.column = column
+        self.func = func
+        self.token_syntax = token_syntax
+
+
 class TaggedTransformer:
     def __init__(self, templates=None):
+        self.features = {
+            "has_unigram": True,
+            "has_bigram": False,
+            "has_trigram": False,
+            "bigram": {},
+            "trigram": {}
+        }
+        self.raw_templates = templates
         self.templates = [self._extract_template(template) for template in templates]
+        self.features_templates = [FeatureTemplate(template) for template in templates]
 
     def _extract_template(self, template):
         token_syntax = template
@@ -21,13 +55,24 @@ class TaggedTransformer:
         column = int(column) if column else 0
         index1 = int(matched.group("index1"))
         index2 = matched.group("index2")
-        index2 = int(index2) if index2 else None
+        if index2:
+            index2 = int(index2)
+            assert index2 - index1 <= 2  # don't support ngram with n > 3
+            if index2 - index1 == 1:
+                self.features["has_bigram"] = True
+            if index2 - index1 == 2:
+                self.features["has_trigram"] = True
         func = matched.group("function")
         return index1, index2, column, func, token_syntax
 
-    def word2features(self, s):
+    def construct_values(self, nodes):
+        values = {}
+        self.values = values
+
+    def nodes2features(self, nodes):
         features = []
-        for i, token in enumerate(s):
+        self.construct_values()
+        for i, token in enumerate(nodes):
             tmp = []
             for template in self.templates:
                 index1, index2, column, func, token_syntax = template
@@ -37,20 +82,20 @@ class TaggedTransformer:
                     result = "%sBOS" % prefix
                     tmp.append(result)
                     continue
-                if i + index1 >= len(s):
+                if i + index1 >= len(nodes):
                     result = "%sEOS" % prefix
                     tmp.append(result)
                     continue
                 if index2 is not None:
-                    if i + index2 >= len(s):
+                    if i + index2 >= len(nodes):
                         result = "%sEOS" % prefix
                         tmp.append(result)
                         continue
-                    tokens = [s[j][column] for j in range(i + index1, i + index2 + 1)]
+                    tokens = [nodes[j][column] for j in range(i + index1, i + index2 + 1)]
                     word = " ".join(tokens)
                 else:
                     try:
-                        word = s[i + index1][column]
+                        word = nodes[i + index1][column]
                     except Exception:
                         pass
                 if func is not None:
@@ -62,11 +107,8 @@ class TaggedTransformer:
             features.append(tmp)
         return features
 
-    def transform(self, sentences, contain_labels=False):
-        X = [self.word2features(sentence) for sentence in sentences]
-        if contain_labels:
-            y = [self.sentence2labels(s) for s in sentences]
-            return X, y
+    def transform(self, sentences):
+        X = [self.nodes2features(sentence) for sentence in sentences]
         return X
 
     def sentence2labels(self, s):
@@ -99,7 +141,7 @@ class CRFSequenceTagger:
         self.estimator = estimator
 
     def predict(self, tokens):
-        tokens = [(token, ) for token in tokens]
+        tokens = [(token,) for token in tokens]
         x = self.transformer.transform([tokens])[0]
         tags = self.estimator.tag(x)
         return tags
