@@ -1,8 +1,8 @@
-1	Rồi	rồi	ADP	Pre	-	3	mark	_	_
-2	tui	tui	N	N	-	3	nsubj	_	_
-3	rang	rang	VERB	V	-	0	root	_	_
-4	gạo	gạo	N	N	-	3	obj	_	_
-5	lấy	lấy	VERB	V	-	3	xcomp	_	_
+1	Rồi	rồi	ADP	A	-	3	mark	_	_
+2	tui	tui	N	A	-	3	nsubj	_	_
+3	rang	rang	VERB	A	-	0	root	_	_
+4	gạo	gạo	N	A	-	3	obj	_	_
+5	lấy	lấy	VERB	A	-	3	xcomp	_	_
 6	nước	nước	N	N	-	5	obj	_	_
 7	pha	pha	VERB	V	-	5	xcomp	_	_
 8	sữa	sữa	N	N	-	7	obj	_	_
