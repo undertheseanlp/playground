@@ -1,8 +1,6 @@
 import os
-from underthesea.file_utils import DATASETS_FOLDER, CACHE_ROOT
 from types import SimpleNamespace
-
-from conll18_ud_eval import evaluate_wrapper, evaluate_wrapper2
+from conll18_ud_eval import evaluate_wrapper2
 from export.data import DPTagger
 
 
@@ -25,7 +23,7 @@ class DPTrainer:
         os.system(train_cmd)
 
         test_file = self.corpus.test
-        system_file = 'tmp_output.conll'
+        system_file = 'tmp/tmp_output.conll'
         test_cmd = f'java -jar {MALT_PARSER}/maltparser-1.9.2.jar -c {model_name} -i {test_file} -o {system_file} -nt true -m parse'
         print(test_cmd)
         os.system(test_cmd)
