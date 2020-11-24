@@ -12,8 +12,8 @@ class DPTagger:
 class VLSP2020_DP_R1:
     def __init__(self):
         VLSP2020_DP_FOLDER = f'{DATASETS_FOLDER}/VLSP2020-DP-R1'
-        train_file = f'{VLSP2020_DP_FOLDER}/DP-Package2.18.11.2020.txt'
+        train_file = f'{VLSP2020_DP_FOLDER}/train.txt'
         self.train = train_file
 
-        test_file = f'{VLSP2020_DP_FOLDER}/VTB_400.txt'
+        test_file = f'{VLSP2020_DP_FOLDER}/test.txt'
         self.test = test_file

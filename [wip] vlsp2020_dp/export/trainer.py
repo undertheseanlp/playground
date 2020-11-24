@@ -31,6 +31,6 @@ class DPTrainer:
         args = SimpleNamespace()
         args.gold_file = self.corpus.test
         args.system_file = system_file
-        args.verbose = False
+        args.verbose = True
         args.counts = False
         evaluate_wrapper2(args)
