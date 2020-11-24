@@ -36,6 +36,17 @@ names = {
 }
 rnn = RNN(n_letter, n_hidden, n_categories)
 
-n_iters = 100
-for i in range(1, n_iters + 1):
+epochs = 100
+
+
+def train():
     pass
+
+
+def evaluate():
+    pass
+
+
+for epoch in range(1, epochs + 1):
+    train()
+    evaluate()
