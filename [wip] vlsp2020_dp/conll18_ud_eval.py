@@ -434,7 +434,7 @@ def evaluate(gold_ud, system_ud):
             else:
                 # B: No multi-word token => align according to spans.
                 if (gold_words[gi].span.start, gold_words[gi].span.end) == (
-                system_words[si].span.start, system_words[si].span.end):
+                        system_words[si].span.start, system_words[si].span.end):
                     alignment.append_aligned_words(gold_words[gi], system_words[si])
                     gi += 1
                     si += 1
@@ -498,6 +498,41 @@ def evaluate_wrapper(args):
     gold_ud = load_conllu_file(args.gold_file)
     system_ud = load_conllu_file(args.system_file)
     return evaluate(gold_ud, system_ud)
+
+
+def evaluate_wrapper2(args):
+    evaluation = evaluate_wrapper(args)
+
+    # Print the evaluation
+    if not args.verbose and not args.counts:
+        print("LAS F1 Score: {:.2f}".format(100 * evaluation["LAS"].f1))
+        print("MLAS Score: {:.2f}".format(100 * evaluation["MLAS"].f1))
+        print("BLEX Score: {:.2f}".format(100 * evaluation["BLEX"].f1))
+    else:
+        if args.counts:
+            print("Metric     | Correct   |      Gold | Predicted | Aligned")
+        else:
+            print("Metric     | Precision |    Recall |  F1 Score | AligndAcc")
+        print("-----------+-----------+-----------+-----------+-----------")
+        for metric in ["Tokens", "Sentences", "Words", "UPOS", "XPOS", "UFeats", "AllTags", "Lemmas", "UAS", "LAS",
+                       "CLAS", "MLAS", "BLEX"]:
+            if args.counts:
+                print("{:11}|{:10} |{:10} |{:10} |{:10}".format(
+                    metric,
+                    evaluation[metric].correct,
+                    evaluation[metric].gold_total,
+                    evaluation[metric].system_total,
+                    evaluation[metric].aligned_total or (evaluation[metric].correct if metric == "Words" else "")
+                ))
+            else:
+                print("{:11}|{:10.2f} |{:10.2f} |{:10.2f} |{}".format(
+                    metric,
+                    100 * evaluation[metric].precision,
+                    100 * evaluation[metric].recall,
+                    100 * evaluation[metric].f1,
+                    "{:10.2f}".format(100 * evaluation[metric].aligned_accuracy) if evaluation[
+                                                                                        metric].aligned_accuracy is not None else ""
+                ))
 
 
 def main():
