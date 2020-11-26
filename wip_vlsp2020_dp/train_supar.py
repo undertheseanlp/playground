@@ -1,258 +1,280 @@
 import torch
-from supar import Parser
-
-# parser = Parser.load('biaffine-dep-en')
-from torch import nn
-
-from io import open
-import glob
-import os
-
-
-def findFiles(path): return glob.glob(path)
-
-
-print(findFiles('tmp/data/names/*.txt'))
-
-import unicodedata
-import string
-
-all_letters = string.ascii_letters + " .,;'"
-n_letters = len(all_letters)
-
-
-# Turn a Unicode string to plain ASCII, thanks to https://stackoverflow.com/a/518232/2809427
-def unicodeToAscii(s):
-    return ''.join(
-        c for c in unicodedata.normalize('NFD', s)
-        if unicodedata.category(c) != 'Mn'
-        and c in all_letters
-    )
-
-
-# Build the category_lines dictionary, a list of names per language
-category_lines = {}
-all_categories = []
-
-
-# Read a file and split into lines
-def readLines(filename):
-    lines = open(filename, encoding='utf-8').read().strip().split('\n')
-    return [unicodeToAscii(line) for line in lines]
-
-
-for filename in findFiles('tmp/data/names/*.txt'):
-    category = os.path.splitext(os.path.basename(filename))[0]
-    all_categories.append(category)
-    lines = readLines(filename)
-    category_lines[category] = lines
-
-n_categories = len(all_categories)
-print(n_categories)
-
-import torch
-
-# Find letter index from all_letters, e.g. "a" = 0
-def letterToIndex(letter):
-    return all_letters.find(letter)
-
-# Just for demonstration, turn a letter into a <1 x n_letters> Tensor
-def letterToTensor(letter):
-    tensor = torch.zeros(1, n_letters)
-    tensor[0][letterToIndex(letter)] = 1
-    return tensor
-
-# Turn a line into a <line_length x 1 x n_letters>,
-# or an array of one-hot letter vectors
-def lineToTensor(line):
-    tensor = torch.zeros(len(line), 1, n_letters)
-    for li, letter in enumerate(line):
-        tensor[li][0][letterToIndex(letter)] = 1
-    return tensor
-
-print(letterToTensor('J'))
-
-print(lineToTensor('Jones').size())
-
 import torch.nn as nn
+from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 
-class RNN(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
-        super(RNN, self).__init__()
+from wip_vlsp2020_dp.export.modules.base import CharLSTM, IndependentDropout, BiLSTM, SharedDropout, MLP, Biaffine
 
-        self.hidden_size = hidden_size
 
-        self.i2h = nn.Linear(input_size + hidden_size, hidden_size)
-        self.i2o = nn.Linear(input_size + hidden_size, output_size)
-        self.softmax = nn.LogSoftmax(dim=1)
+class BiaffineDependencyModel(nn.Module):
+    r"""
+    The implementation of Biaffine Dependency Parser.
 
-    def forward(self, input, hidden):
-        combined = torch.cat((input, hidden), 1)
-        hidden = self.i2h(combined)
-        output = self.i2o(combined)
-        output = self.softmax(output)
-        return output, hidden
+    References:
+        - Timothy Dozat and Christopher D. Manning. 2017.
+          `Deep Biaffine Attention for Neural Dependency Parsing`_.
 
-    def initHidden(self):
-        return torch.zeros(1, self.hidden_size)
+    Args:
+        n_words (int):
+            The size of the word vocabulary.
+        n_feats (int):
+            The size of the feat vocabulary.
+        n_rels (int):
+            The number of labels in the treebank.
+        feat (str):
+            Specifies which type of additional feature to use: ``'char'`` | ``'bert'`` | ``'tag'``.
+            ``'char'``: Character-level representations extracted by CharLSTM.
+            ``'bert'``: BERT representations, other pretrained langugae models like XLNet are also feasible.
+            ``'tag'``: POS tag embeddings.
+            Default: ``'char'``.
+        n_embed (int):
+            The size of word embeddings. Default: 100.
+        n_feat_embed (int):
+            The size of feature representations. Default: 100.
+        n_char_embed (int):
+            The size of character embeddings serving as inputs of CharLSTM, required if ``feat='char'``. Default: 50.
+        bert (str):
+            Specifies which kind of language model to use, e.g., ``'bert-base-cased'`` and ``'xlnet-base-cased'``.
+            This is required if ``feat='bert'``. The full list can be found in `transformers`_.
+            Default: ``None``.
+        n_bert_layers (int):
+            Specifies how many last layers to use. Required if ``feat='bert'``.
+            The final outputs would be the weight sum of the hidden states of these layers.
+            Default: 4.
+        max_len (int):
+            Sequences should not exceed the specfied max length. Default: ``None``.
+        mix_dropout (float):
+            The dropout ratio of BERT layers. Required if ``feat='bert'``. Default: .0.
+        embed_dropout (float):
+            The dropout ratio of input embeddings. Default: .33.
+        n_lstm_hidden (int):
+            The size of LSTM hidden states. Default: 400.
+        n_lstm_layers (int):
+            The number of LSTM layers. Default: 3.
+        lstm_dropout (float):
+            The dropout ratio of LSTM. Default: .33.
+        n_mlp_arc (int):
+            Arc MLP size. Default: 500.
+        n_mlp_rel  (int):
+            Label MLP size. Default: 100.
+        mlp_dropout (float):
+            The dropout ratio of MLP layers. Default: .33.
+        feat_pad_index (int):
+            The index of the padding token in the feat vocabulary. Default: 0.
+        pad_index (int):
+            The index of the padding token in the word vocabulary. Default: 0.
+        unk_index (int):
+            The index of the unknown token in the word vocabulary. Default: 1.
 
-n_hidden = 128
-rnn = RNN(n_letters, n_hidden, n_categories)
+    .. _Deep Biaffine Attention for Neural Dependency Parsing:
+        https://openreview.net/forum?id=Hk95PK9le
+    .. _transformers:
+        https://github.com/huggingface/transformers
+    """
 
-input = letterToTensor('A')
-hidden =torch.zeros(1, n_hidden)
+    def __init__(self,
+                 n_words,
+                 n_feats,
+                 n_rels,
+                 feat='char',
+                 n_embed=100,
+                 n_feat_embed=100,
+                 n_char_embed=50,
+                 bert=None,
+                 n_bert_layers=4,
+                 max_len=None,
+                 mix_dropout=.0,
+                 embed_dropout=.33,
+                 n_lstm_hidden=400,
+                 n_lstm_layers=3,
+                 lstm_dropout=.33,
+                 n_mlp_arc=500,
+                 n_mlp_rel=100,
+                 mlp_dropout=.33,
+                 feat_pad_index=0,
+                 pad_index=0,
+                 unk_index=1,
+                 **kwargs):
+        super().__init__()
 
-output, next_hidden = rnn(input, hidden)
+        # the embedding layer
+        self.word_embed = nn.Embedding(num_embeddings=n_words,
+                                       embedding_dim=n_embed)
+        if feat == 'char':
+            self.feat_embed = CharLSTM(n_chars=n_feats,
+                                       n_embed=n_char_embed,
+                                       n_out=n_feat_embed,
+                                       pad_index=feat_pad_index)
+        elif feat == 'bert':
+            self.feat_embed = BertEmbedding(model=bert,
+                                            n_layers=n_bert_layers,
+                                            n_out=n_feat_embed,
+                                            pad_index=feat_pad_index,
+                                            max_len=max_len,
+                                            dropout=mix_dropout)
+            self.n_feat_embed = self.feat_embed.n_out
+        elif feat == 'tag':
+            self.feat_embed = nn.Embedding(num_embeddings=n_feats,
+                                           embedding_dim=n_feat_embed)
+        else:
+            raise RuntimeError("The feat type should be in ['char', 'bert', 'tag'].")
+        self.embed_dropout = IndependentDropout(p=embed_dropout)
 
-input = lineToTensor('Albert')
-hidden = torch.zeros(1, n_hidden)
+        # the lstm layer
+        self.lstm = BiLSTM(input_size=n_embed + n_feat_embed,
+                           hidden_size=n_lstm_hidden,
+                           num_layers=n_lstm_layers,
+                           dropout=lstm_dropout)
+        self.lstm_dropout = SharedDropout(p=lstm_dropout)
 
-output, next_hidden = rnn(input[0], hidden)
+        # the MLP layers
+        self.mlp_arc_d = MLP(n_in=n_lstm_hidden * 2,
+                             n_out=n_mlp_arc,
+                             dropout=mlp_dropout)
+        self.mlp_arc_h = MLP(n_in=n_lstm_hidden * 2,
+                             n_out=n_mlp_arc,
+                             dropout=mlp_dropout)
+        self.mlp_rel_d = MLP(n_in=n_lstm_hidden * 2,
+                             n_out=n_mlp_rel,
+                             dropout=mlp_dropout)
+        self.mlp_rel_h = MLP(n_in=n_lstm_hidden * 2,
+                             n_out=n_mlp_rel,
+                             dropout=mlp_dropout)
+
+        # the Biaffine layers
+        self.arc_attn = Biaffine(n_in=n_mlp_arc,
+                                 bias_x=True,
+                                 bias_y=False)
+        self.rel_attn = Biaffine(n_in=n_mlp_rel,
+                                 n_out=n_rels,
+                                 bias_x=True,
+                                 bias_y=True)
+        self.criterion = nn.CrossEntropyLoss()
+        self.pad_index = pad_index
+        self.unk_index = unk_index
+
+    def load_pretrained(self, embed=None):
+        if embed is not None:
+            self.pretrained = nn.Embedding.from_pretrained(embed)
+            nn.init.zeros_(self.word_embed.weight)
+        return self
+
+    def forward(self, words, feats):
+        r"""
+        Args:
+            words (torch.LongTensor): ``[batch_size, seq_len]``.
+                Word indices.
+            feats (torch.LongTensor):
+                Feat indices.
+                If feat is ``'char'`` or ``'bert'``, the size of feats should be ``[batch_size, seq_len, fix_len]``.
+                if ``'tag'``, the size is ``[batch_size, seq_len]``.
+
+        Returns:
+            torch.Tensor, torch.Tensor:
+                The first tensor of shape ``[batch_size, seq_len, seq_len]`` holds scores of all possible arcs.
+                The second of shape ``[batch_size, seq_len, seq_len, n_labels]`` holds
+                scores of all possible labels on each arc.
+        """
+
+        batch_size, seq_len = words.shape
+        # get the mask and lengths of given batch
+        mask = words.ne(self.pad_index)
+        ext_words = words
+        # set the indices larger than num_embeddings to unk_index
+        if hasattr(self, 'pretrained'):
+            ext_mask = words.ge(self.word_embed.num_embeddings)
+            ext_words = words.masked_fill(ext_mask, self.unk_index)
+
+        # get outputs from embedding layers
+        word_embed = self.word_embed(ext_words)
+        if hasattr(self, 'pretrained'):
+            word_embed += self.pretrained(words)
+        feat_embed = self.feat_embed(feats)
+        word_embed, feat_embed = self.embed_dropout(word_embed, feat_embed)
+        # concatenate the word and feat representations
+        embed = torch.cat((word_embed, feat_embed), -1)
+
+        x = pack_padded_sequence(embed, mask.sum(1), True, False)
+        x, _ = self.lstm(x)
+        x, _ = pad_packed_sequence(x, True, total_length=seq_len)
+        x = self.lstm_dropout(x)
+
+        # apply MLPs to the BiLSTM output states
+        arc_d = self.mlp_arc_d(x)
+        arc_h = self.mlp_arc_h(x)
+        rel_d = self.mlp_rel_d(x)
+        rel_h = self.mlp_rel_h(x)
+
+        # [batch_size, seq_len, seq_len]
+        s_arc = self.arc_attn(arc_d, arc_h)
+        # [batch_size, seq_len, seq_len, n_rels]
+        s_rel = self.rel_attn(rel_d, rel_h).permute(0, 2, 3, 1)
+        # set the scores that exceed the length of each sentence to -inf
+        s_arc.masked_fill_(~mask.unsqueeze(1), float('-inf'))
+
+        return s_arc, s_rel
+
+    def loss(self, s_arc, s_rel, arcs, rels, mask):
+        r"""
+        Args:
+            s_arc (~torch.Tensor): ``[batch_size, seq_len, seq_len]``.
+                Scores of all possible arcs.
+            s_rel (~torch.Tensor): ``[batch_size, seq_len, seq_len, n_labels]``.
+                Scores of all possible labels on each arc.
+            arcs (~torch.LongTensor): ``[batch_size, seq_len]``.
+                The tensor of gold-standard arcs.
+            rels (~torch.LongTensor): ``[batch_size, seq_len]``.
+                The tensor of gold-standard labels.
+            mask (~torch.BoolTensor): ``[batch_size, seq_len]``.
+                The mask for covering the unpadded tokens.
+
+        Returns:
+            ~torch.Tensor:
+                The training loss.
+        """
+
+        s_arc, arcs = s_arc[mask], arcs[mask]
+        s_rel, rels = s_rel[mask], rels[mask]
+        s_rel = s_rel[torch.arange(len(arcs)), arcs]
+        arc_loss = self.criterion(s_arc, arcs)
+        rel_loss = self.criterion(s_rel, rels)
+
+        return arc_loss + rel_loss
+
+    def decode(self, s_arc, s_rel, mask, tree=False, proj=False):
+        r"""
+        Args:
+            s_arc (~torch.Tensor): ``[batch_size, seq_len, seq_len]``.
+                Scores of all possible arcs.
+            s_rel (~torch.Tensor): ``[batch_size, seq_len, seq_len, n_labels]``.
+                Scores of all possible labels on each arc.
+            mask (~torch.BoolTensor): ``[batch_size, seq_len]``.
+                The mask for covering the unpadded tokens.
+            tree (bool):
+                If ``True``, ensures to output well-formed trees. Default: ``False``.
+            proj (bool):
+                If ``True``, ensures to output projective trees. Default: ``False``.
+
+        Returns:
+            ~torch.Tensor, ~torch.Tensor:
+                Predicted arcs and labels of shape ``[batch_size, seq_len]``.
+        """
+
+        lens = mask.sum(1)
+        arc_preds = s_arc.argmax(-1)
+        bad = [not CoNLL.istree(seq[1:i + 1], proj)
+               for i, seq in zip(lens.tolist(), arc_preds.tolist())]
+        if tree and any(bad):
+            alg = eisner if proj else mst
+            arc_preds[bad] = alg(s_arc[bad], mask[bad])
+        rel_preds = s_rel.argmax(-1).gather(-1, arc_preds.unsqueeze(-1)).squeeze(-1)
+
+        return arc_preds, rel_preds
+
+
+model = BiaffineDependencyModel(10, 10, 5)
+
+words = torch.tensor([[1, 2, 3, 4, 5]])
+feats = torch.tensor([[[2], [3], [1], [4], [5]]])
+
+output = model(words, feats)
 print(output)
-
-def categoryFromOutput(output):
-    top_n, top_i = output.topk(1)
-    category_i = top_i[0].item()
-    return all_categories[category_i], category_i
-
-print(categoryFromOutput(output))
-
-import random
-
-def randomChoice(l):
-    return l[random.randint(0, len(l) - 1)]
-
-def randomTrainingExample():
-    category = randomChoice(all_categories)
-    line = randomChoice(category_lines[category])
-    category_tensor = torch.tensor([all_categories.index(category)], dtype=torch.long)
-    line_tensor = lineToTensor(line)
-    return category, line, category_tensor, line_tensor
-
-for i in range(10):
-    category, line, category_tensor, line_tensor = randomTrainingExample()
-    print('category =', category, '/ line =', line)
-
-criterion = nn.NLLLoss()
-learning_rate = 0.005 # If you set this too high, it might explode. If too low, it might not learn
-
-def train(category_tensor, line_tensor):
-    hidden = rnn.initHidden()
-
-    rnn.zero_grad()
-
-    for i in range(line_tensor.size()[0]):
-        output, hidden = rnn(line_tensor[i], hidden)
-
-    loss = criterion(output, category_tensor)
-    loss.backward()
-
-    # Add parameters' gradients to their values, multiplied by learning rate
-    for p in rnn.parameters():
-        p.data.add_(p.grad.data, alpha=-learning_rate)
-
-    return output, loss.item()
-
-import time
-import math
-
-n_iters = 10000
-print_every = 5000
-plot_every = 1000
-
-# Keep track of losses for plotting
-current_loss = 0
-all_losses = []
-
-def timeSince(since):
-    now = time.time()
-    s = now - since
-    m = math.floor(s / 60)
-    s -= m * 60
-    return '%dm %ds' % (m, s)
-
-start = time.time()
-
-for iter in range(1, n_iters + 1):
-    category, line, category_tensor, line_tensor = randomTrainingExample()
-    output, loss = train(category_tensor, line_tensor)
-    current_loss += loss
-
-    # Print iter number, loss, name and guess
-    if iter % print_every == 0:
-        guess, guess_i = categoryFromOutput(output)
-        correct = '✓' if guess == category else '✗ (%s)' % category
-        print('%d %d%% (%s) %.4f %s / %s %s' % (iter, iter / n_iters * 100, timeSince(start), loss, line, guess, correct))
-
-    # Add current loss avg to list of losses
-    if iter % plot_every == 0:
-        all_losses.append(current_loss / plot_every)
-        current_loss = 0
-
-import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
-
-plt.figure()
-plt.plot(all_losses)
-
-# Keep track of correct guesses in a confusion matrix
-confusion = torch.zeros(n_categories, n_categories)
-n_confusion = 10000
-
-# Just return an output given a line
-def evaluate(line_tensor):
-    hidden = rnn.initHidden()
-
-    for i in range(line_tensor.size()[0]):
-        output, hidden = rnn(line_tensor[i], hidden)
-
-    return output
-
-# Go through a bunch of examples and record which are correctly guessed
-for i in range(n_confusion):
-    category, line, category_tensor, line_tensor = randomTrainingExample()
-    output = evaluate(line_tensor)
-    guess, guess_i = categoryFromOutput(output)
-    category_i = all_categories.index(category)
-    confusion[category_i][guess_i] += 1
-
-# Normalize by dividing every row by its sum
-for i in range(n_categories):
-    confusion[i] = confusion[i] / confusion[i].sum()
-
-# Set up plot
-fig = plt.figure()
-ax = fig.add_subplot(111)
-cax = ax.matshow(confusion.numpy())
-fig.colorbar(cax)
-
-# Set up axes
-ax.set_xticklabels([''] + all_categories, rotation=90)
-ax.set_yticklabels([''] + all_categories)
-
-# Force label at every tick
-ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
-ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
-
-# sphinx_gallery_thumbnail_number = 2
-plt.show()
-
-def predict(input_line, n_predictions=3):
-    print('\n> %s' % input_line)
-    with torch.no_grad():
-        output = evaluate(lineToTensor(input_line))
-
-        # Get top N categories
-        topv, topi = output.topk(n_predictions, 1, True)
-        predictions = []
-
-        for i in range(n_predictions):
-            value = topv[0][i].item()
-            category_index = topi[0][i].item()
-            print('(%.2f) %s' % (value, all_categories[category_index]))
-            predictions.append([value, all_categories[category_index]])
-
-predict('Dovesky')
-predict('Jackson')
-predict('Satoshi')
-
