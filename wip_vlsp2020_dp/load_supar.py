@@ -1,6 +1,5 @@
 from supar import Parser, BiaffineDependencyParser
 
-# parser = Parser.load('biaffine-dep-en')
+parser = Parser.load('biaffine-dep-en')
 
-parser = BiaffineDependencyParser()
-parser.train()
+print('Done')
