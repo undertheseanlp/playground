@@ -1,6 +1,9 @@
+from os.path import join
+
 import torch
 from supar import BiaffineDependencyParser
 from supar.utils import CoNLL
+from underthesea.file_utils import CACHE_ROOT
 
 from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
 
@@ -15,7 +18,9 @@ from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
 # args = type("Args", (object, ), {})()
 # args.feat = 'char'
 # args.build = False
-CORPUS = '/home/anhv/.underthesea/datasets/VLSP2020-DP-R1'
+
+DATASETS_FOLDER = join(CACHE_ROOT, 'datasets')
+CORPUS = join(DATASETS_FOLDER, 'VLSP2020-DP-R1')
 args = {
     'feat': 'char',
     'build': False,
