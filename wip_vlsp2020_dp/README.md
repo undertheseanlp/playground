@@ -18,7 +18,7 @@ These are several studies about Vietnamese Dependency Parsing
 
 ### Experiments Description
 
-In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[2]](#) method.  
+In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[2]](#references) method.  
 
 ### Dataset
 
@@ -56,3 +56,7 @@ To reproduce this result, you can run
 export MALT_PARSER=/home/anhv/Downloads/maltparser-1.9.2
 python train_malt.py 
 ```
+
+### References
+
+* [1]()
