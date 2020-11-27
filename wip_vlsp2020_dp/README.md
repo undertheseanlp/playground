@@ -34,6 +34,8 @@ In these experiments, we use MaltParser as a baseline method. We further do some
 
 **MaltParser**
 
+MaltParser is developed by Johan Hall, Jens Nilsson and Joankim Nivre. It is a data-driven parser generator for dependency parsing. Giving a treebank in dependency format, MaltParser can be used to induce a parser for the language of the treebank. MaltParser supports several parsing algorithms and learning algorithms, and allows user-defined models, consisting of arbitrary combinations of lexical features, part-of-speech features and dependency features. 
+
 We run a simple MaltParser experiment with default config (see table 1)
 
 Table 1: Default configs for MaltParser

@@ -107,7 +107,10 @@ class BiaffineDependencyModel(nn.Module):
             "n_words": n_words,
             "n_feats": n_feats,
             "n_rels": n_rels,
-            "feat": feat
+            "feat": feat,
+            'tree': False,
+            'proj': False,
+            'punct': False
         }
 
         # the embedding layer

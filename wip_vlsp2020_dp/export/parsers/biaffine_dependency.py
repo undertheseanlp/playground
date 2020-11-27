@@ -164,17 +164,21 @@ class BiaffineDependencyParser(Parser):
 
         total_loss, metric = 0, AttachmentMetric()
 
+        try:
+            tree = self.args.tree
+            proj = self.args.proj
+        except:
+            tree = self.args['tree']
+            proj = self.args['proj']
         for words, feats, arcs, rels in loader:
             mask = words.ne(self.WORD.pad_index)
             # ignore the first token of each sentence
             mask[:, 0] = 0
             s_arc, s_rel = self.model(words, feats)
             loss = self.model.loss(s_arc, s_rel, arcs, rels, mask)
-            arc_preds, rel_preds = self.model.decode(s_arc, s_rel, mask,
-                                                     self.args.tree,
-                                                     self.args.proj)
+            arc_preds, rel_preds = self.model.decode(s_arc, s_rel, mask, tree, proj)
             # ignore all punctuation if not specified
-            if not self.args.punct:
+            if not self.args['punct']:
                 mask &= words.unsqueeze(-1).ne(self.puncts).all(-1)
             total_loss += loss.item()
             metric(arc_preds, rel_preds, arcs, rels, mask)
