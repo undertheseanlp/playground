@@ -1,6 +1,7 @@
 # Dependence Parsing
 
 ### Introduction
+
 Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure 
 and defines the relationships between "head" words and words, which modify those heads. 
 
@@ -18,7 +19,7 @@ These are several studies about Vietnamese Dependency Parsing
 
 ### Experiments Description
 
-In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[2]](#references) method.  
+In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.  
 
 ### Dataset
 
@@ -59,4 +60,4 @@ python train_malt.py
 
 ### References
 
-* [1]()
+[1] Dozat, T., & Manning, C. D. (2017). Deep biaffine attention for neural dependency parsing. ArXiv:1611.01734 [Cs]. http://arxiv.org/abs/1611.01734
