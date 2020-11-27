@@ -202,7 +202,9 @@ class Parser(object):
         try:
             args = model.args
         except:
-            args = {}
+            args = {
+                'train': 'train'
+            }
         state_dict = {k: v.cpu() for k, v in model.state_dict().items()}
         pretrained = state_dict.pop('pretrained.weight', None)
         state = {'name': self.NAME,
