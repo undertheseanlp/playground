@@ -111,7 +111,9 @@ singlemalt
   diafile (-dif)                        stdout 
 ```
 
-**Explore Deep Learning model**
+**Biaffine Attenion for Nerual Dependency Parsing**
+
+![](img/biaffine_attention_dependency_parsing.png)
 
 We try to make [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
 
