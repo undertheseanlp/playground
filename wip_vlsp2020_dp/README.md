@@ -1,4 +1,4 @@
-# [WIP] Simple experiment with Vietnamese Dependence Parsing
+# [WIP] A simple experiment with Vietnamese Dependence Parsing
 
 `wip`, `help-wanted`, `vietnamese-dependence-parsing`, `date:nov-2020`
 
