@@ -191,8 +191,8 @@ class Parser(object):
             path = supar.PRETRAINED[path] if path in supar.PRETRAINED else path
             state = torch.hub.load_state_dict_from_url(path)
         try:
-            from export.models.biaffine_dependency_parser import BiaffineDependencyParser
-            cls = BiaffineDependencyParser
+            from export.models.biaffine_dependency_parser import BiaffineDependencyParserSupar
+            cls = BiaffineDependencyParserSupar
         except Exception as e:
             print(e)
 

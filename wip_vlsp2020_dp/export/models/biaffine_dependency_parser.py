@@ -3,9 +3,9 @@ import os
 import torch
 import torch.nn as nn
 
+from export.nn import Model
 from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
 from wip_vlsp2020_dp.export.models.parser import Parser
-
 
 from supar.utils import Config, Dataset, Embedding
 from supar.utils.common import bos, pad, unk
@@ -18,7 +18,12 @@ from supar.utils.transform import CoNLL
 logger = get_logger(__name__)
 
 
-class BiaffineDependencyParser(Parser):
+class BiaffineDependencyParser(Model):
+    def __init__(self):
+        pass
+
+
+class BiaffineDependencyParserSupar(Parser):
     r"""
     The implementation of Biaffine Dependency Parser.
 
@@ -208,7 +213,7 @@ class BiaffineDependencyParser(Parser):
             rels.extend(rel_preds[mask].split(lens))
             if prob:
                 arc_probs = s_arc.softmax(-1)
-                probs.extend([prob[1:i+1, :i+1].cpu() for i, prob in zip(lens, arc_probs.unbind())])
+                probs.extend([prob[1:i + 1, :i + 1].cpu() for i, prob in zip(lens, arc_probs.unbind())])
         arcs = [seq.tolist() for seq in arcs]
         rels = [self.REL.vocab[seq.tolist()] for seq in rels]
         preds = {'arcs': arcs, 'rels': rels}
