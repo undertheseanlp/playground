@@ -1,4 +1,6 @@
-# Dependence Parsing
+# [Work In Progress] Dependence Parsing
+
+`wip`, `help-wanted`, `vietnamese-dependence-parsing` 
 
 ### Introduction
 
@@ -17,7 +19,7 @@ These are several studies about Vietnamese Dependency Parsing
 * In 2013, N.T. Luong et al: MatlParser on a Vietnamese dependency treebank
 * In 2014, N. Q. Dat et al: a new conversion method to automatically transform a constiuent-based VietTreebank in to dependency trees
 * In 2017, N. K. Hieu: build BKTreebank, a dependency treebank for Vietnamese
-* In 2017, a Vietnamese depedency treebank of 3,000 sentences is included for the CoNLL shared-task: "Multilingual Parsing from Raw Text to Universal Dependencies": 48 dependency labels for Vietnamese based on Stanford dependency labels set.
+* In 2017, a Vietnamese dependency treebank of 3,000 sentences is included for the CoNLL shared-task: "Multilingual Parsing from Raw Text to Universal Dependencies": 48 dependency labels for Vietnamese based on Stanford dependency labels set.
 * In 2019, Vietnamese dependency parsing shared task in VLSP2019
 * In 2020, VLSP organized the second shared task about dependency parsing
 
@@ -33,7 +35,7 @@ We show test results on the [VLSP 2020 Dependency Parsing dataset](https://vlsp.
 consists 10,000 dependency-annotated sentences. We concat two file `DP-Package2.18.11.2020.txt` and `VTB_2996.txt` as 
 training data, and get `VTB_400.txt` file as test data. 
 
-### Results
+### (current) Results
 
 Detail score after using MaltParser, we consider this result as baseline of our experiments  
 
