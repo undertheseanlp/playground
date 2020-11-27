@@ -187,10 +187,9 @@ class Parser(object):
             path = supar.PRETRAINED[path] if path in supar.PRETRAINED else path
             state = torch.hub.load_state_dict_from_url(path)
         cls = supar.PARSER[state['name']] if cls.NAME is None else cls
-        if args:
-            args = state['args'].update(args)
-        else:
-            args = state['args']
+
+        state['args'].update(args)
+        args = state['args']
         model = cls.MODEL(**args)
         model.load_pretrained(state['pretrained'])
         model.load_state_dict(state['state_dict'], False)
@@ -206,7 +205,9 @@ class Parser(object):
             args = model.args
         except:
             args = {
-                'train': 'train'
+                'n_words': model.n_words,
+                'n_feats': model.n_feats,
+                'n_rels': model.n_rels
             }
         state_dict = {k: v.cpu() for k, v in model.state_dict().items()}
         pretrained = state_dict.pop('pretrained.weight', None)

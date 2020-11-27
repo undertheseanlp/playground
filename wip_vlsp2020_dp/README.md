@@ -7,7 +7,9 @@
 Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure 
 and defines the relationships between "head" words and words, which modify those heads. 
 
-In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task.
+In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods [WIP]. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task [TBD].
+
+There are some deep learning methods for dependence parser tasks, begin with Manning work (2016), we focus on *biaffine attention* [[1]](#references) - a proven method which give a best result in VLSP 2019.
 
 ### Background and Related Work
 
@@ -25,11 +27,86 @@ These are several studies about Vietnamese Dependency Parsing
 
 In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.
 
-**Try MaltParser**
+**MaltParser**
+
+We run a quick MaltParser experiment with default config (see table 1)
+
+Table 1: Default configs for MaltParser
+
+```
+2planar
+  reduceonswitch (-2pr)                 false
+config
+  logfile (-lfi)                        stdout
+  workingdir (  -w)                     user.dir
+  name (  -c)                           dp-model-2
+  logging ( -cl)                        info
+  flowchart (  -m)                      learn
+  type (  -t)                           singlemalt
+  url (  -u)                            
+covington
+  allow_shift ( -cs)                    false
+  allow_root ( -cr)                     true
+graph
+  max_sentence_length (-gsl)            256
+  root_label (-grl)                     ROOT
+  head_rules (-ghr)                     
+guide
+  features (  -F)                       
+  data_split_threshold (  -T)           50
+  kbest_type ( -kt)                     rank
+  data_split_structure (  -s)           
+  data_split_column (  -d)              
+  learner (  -l)                        liblinear
+  decision_settings (-gds)              T.TRANS+A.DEPREL
+  classitem_separator (-gcs)            ~
+  kbest (  -k)                          -1
+input
+  charset ( -ic)                        UTF-8
+  reader ( -ir)                         tab
+  reader_options (-iro)                 
+  format ( -if)                         /appdata/dataformat/conllx.xml
+  infile (  -i)                         /home/anhv/.underthesea/datasets/VLSP2020-DP-R1/train.txt
+  iterations ( -it)                     1
+lib
+  external ( -lx)                       
+  save_instance_files ( -li)            false
+  options ( -lo)                        
+  verbosity ( -lv)                      silent
+multiplanar
+  planar_root_handling (-prh)           normal
+nivre
+  enforce_tree ( -nt)                   true
+  allow_reduce ( -ne)                   false
+  allow_root ( -nr)                     true
+output
+  charset ( -oc)                        UTF-8
+  outfile (  -o)                        
+  format ( -of)                         
+  writer_options (-owo)                 
+  writer ( -ow)                         tab
+planar
+  no_covered_roots (-pcov)               false
+  acyclicity (-pacy)                     true
+  connectedness (-pcon)                  none
+pproj
+  marking_strategy ( -pp)               none
+  lifting_order (-plo)                  shortest
+  covered_root (-pcr)                   none
+singlemalt
+  mode ( -sm)                           parse
+  diagnostics ( -di)                    false
+  use_partial_tree ( -up)               false
+  propagation ( -fp)                    
+  parsing_algorithm (  -a)              nivreeager
+  guide_model ( -gm)                    single
+  null_value ( -nv)                     one
+  diafile (-dif)                        stdout 
+```
 
 **Explore Deep Learning model**
 
-There are some deep learning methods for dependence parser tasks, begin with Manning work (2016), we focus on *biaffine attention* [[1]](#references) - a proven method which give a best result in VLSP 2019.
+We try to make [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
 
 ### Dataset
 
@@ -43,6 +120,8 @@ training data, and get `VTB_400.txt` file as test data.
 
 Detail score after using MaltParser, we consider this result as baseline of our experiments  
 
+Table 2: detail score using MaltParser
+ 
 ```
 Metric     | Precision |    Recall |  F1 Score | AligndAcc
 -----------+-----------+-----------+-----------+-----------
