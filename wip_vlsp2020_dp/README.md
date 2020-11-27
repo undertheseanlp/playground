@@ -111,10 +111,12 @@ singlemalt
   diafile (-dif)                        stdout 
 ```
 
-**Biaffine Attenion for Nerual Dependency Parsing**
+**Biaffine Attenion for Neural Dependency Parsing**
 
 ![](img/biaffine_attention_dependency_parsing.png)
 
+*Figure 1: Biaffine Attention for Neural Dependency Parsing*
+ 
 We try to make [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
 
 ### Dataset
