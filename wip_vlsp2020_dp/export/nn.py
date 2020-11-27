@@ -25,7 +25,10 @@ class Model(torch.nn.Module):
     def save(self, model_file: Union[str, Path]):
         """
         Saves the current model to the provided file.
-        :param model_file: the model file
+
+        Args:
+            model_file (Union[str, Path]): the model file
+
         """
         model_state = self._get_state_dict()
 
