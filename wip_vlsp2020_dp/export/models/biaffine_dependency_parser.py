@@ -19,8 +19,9 @@ logger = get_logger(__name__)
 
 
 class BiaffineDependencyParser(Model):
-    def __init__(self):
-        pass
+    def __init__(self, embeddings='char', embed=False):
+        self.embeddings = embeddings
+        self.embed = embed
 
 
 class BiaffineDependencyParserSupar(Parser):
