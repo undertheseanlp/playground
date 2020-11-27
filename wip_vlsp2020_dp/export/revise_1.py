@@ -33,3 +33,7 @@ for i, line in enumerate(origin_file):
 
 origin_file.close()
 r1_file.close()
+
+# copy test.txt -> dev.txt
+os.system(f'cp {R_FOLDER}/test.txt {R_FOLDER}/dev.txt')
+
