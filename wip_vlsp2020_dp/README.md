@@ -7,9 +7,7 @@
 Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure 
 and defines the relationships between "head" words and words, which modify those heads. 
 
-In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods.
-
-We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task.
+In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task.
 
 ### Background and Related Work
 
