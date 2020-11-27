@@ -16,7 +16,7 @@ args = {
 }
 
 parser = BiaffineDependencyParser.build(path='tmp/dp', **args)
-parser.train(train=args['train'], dev=args['dev'], test=args['test'], epochs=1)
+parser.train(train=args['train'], dev=args['dev'], test=args['test'], epochs=5000)
 
 parser = None
 corpus = None
