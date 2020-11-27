@@ -38,7 +38,7 @@ MaltParser is developed by Johan Hall, Jens Nilsson and Joankim Nivre. It is a d
 
 We run a simple MaltParser experiment with default config (see table 1)
 
-Table 1: Default configs for MaltParser
+*Table 1: Default configs for MaltParser*
 
 ```
 2planar
@@ -131,7 +131,7 @@ training data, and get `VTB_400.txt` file as test data.
 
 Detail score after using MaltParser, we consider this result as baseline of our experiments  
 
-Table 2: detail score using MaltParser
+*Table 2: detail score using MaltParser*
  
 ```
 Metric     | Precision |    Recall |  F1 Score | AligndAcc
