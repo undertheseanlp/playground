@@ -20,11 +20,9 @@ training data, and get `VTB_400.txt` file as test data.
 
 **Results**
 
+Detail results by using MaltParser, we consider this result as baseline of our experiments  
 
 ```
-export MALT_PARSER=/home/anhv/Downloads/maltparser-1.9.2
-python train_malt.py
-
 Metric     | Precision |    Recall |  F1 Score | AligndAcc
 -----------+-----------+-----------+-----------+-----------
 Tokens     |    100.00 |    100.00 |    100.00 |
@@ -42,3 +40,9 @@ MLAS       |     60.74 |     60.23 |     60.48 |     60.23
 BLEX       |     62.70 |     62.17 |     62.43 |     62.17 
 ```
 
+To reproduce this result, you can run 
+
+```
+export MALT_PARSER=/home/anhv/Downloads/maltparser-1.9.2
+python train_malt.py 
+```
