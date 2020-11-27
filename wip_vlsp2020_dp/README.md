@@ -1,9 +1,10 @@
 # Dependence Parsing
 
+### Introduction
 Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure 
 and defines the relationships between "head" words and words, which modify those heads. 
 
-**Background and Related Work**
+### Background and Related Work
 
 These are several studies about Vietnamese Dependency Parsing
 
@@ -13,10 +14,13 @@ These are several studies about Vietnamese Dependency Parsing
 * In 2017, N. K. Hieu: build BKTreebank, a dependency treebank for Vietnamese
 * In 2017, a Vietnamese depedency treebank of 3,000 sentences is included for the CoNLL shared-task: "Multilingual Parsing from Raw Text to Universal Dependencies": 48 dependency labels for Vietnamese based on Stanford dependency labels set.
 * In 2019, Vietnamese dependency parsing shared task in VLSP2019
+* In 2020, VLSP organized the second shared task about dependency parsing
 
-**Experiments Description**
+### Experiments Description
 
 In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially biaffine attention method.  
+
+### Dataset
 
 **VLSP2020 Dependency Parsing Dataset**
 
@@ -24,7 +28,7 @@ We show test results on the [VLSP 2020 Dependency Parsing dataset](https://vlsp.
 consists 10,000 dependency-annotated sentences. We concat two file `DP-Package2.18.11.2020.txt` and `VTB_2996.txt` as 
 training data, and get `VTB_400.txt` file as test data. 
 
-**Results**
+### Results
 
 Detail score after using MaltParser, we consider this result as baseline of our experiments  
 
