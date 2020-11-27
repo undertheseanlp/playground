@@ -1,6 +1,5 @@
 from os.path import join
 from underthesea.file_utils import CACHE_ROOT
-
 from wip_vlsp2020_dp.export.parsers.biaffine_dependency import BiaffineDependencyParser
 
 DATASETS_FOLDER = join(CACHE_ROOT, 'datasets')
