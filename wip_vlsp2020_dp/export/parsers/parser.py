@@ -119,6 +119,10 @@ class Parser(object):
 
     def predict(self, data, pred=None, buckets=8, batch_size=5000, prob=False, **kwargs):
         args = self.args.update(locals())
+        if not args:
+            args = locals()
+            args.update(kwargs)
+            args = type('Args', (object,), locals())
         init_logger(logger, verbose=args.verbose)
 
         self.transform.eval()
@@ -186,7 +190,11 @@ class Parser(object):
         else:
             path = supar.PRETRAINED[path] if path in supar.PRETRAINED else path
             state = torch.hub.load_state_dict_from_url(path)
-        cls = supar.PARSER[state['name']] if cls.NAME is None else cls
+        try:
+            from export.parsers.biaffine_dependency import BiaffineDependencyParser
+            cls = BiaffineDependencyParser
+        except Exception as e:
+            print(e)
 
         state['args'].update(args)
         args = state['args']

@@ -3,12 +3,9 @@ import os
 import torch
 import torch.nn as nn
 
-try:
-    from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
-    from wip_vlsp2020_dp.export.parsers.parser import Parser
-except:
-    from playground.wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
-    from playground.wip_vlsp2020_dp.export.parsers.parser import Parser
+from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
+from wip_vlsp2020_dp.export.parsers.parser import Parser
+
 
 from supar.utils import Config, Dataset, Embedding
 from supar.utils.common import bos, pad, unk
@@ -189,7 +186,14 @@ class BiaffineDependencyParser(Parser):
     @torch.no_grad()
     def _predict(self, loader):
         self.model.eval()
-
+        try:
+            tree = self.args.tree
+            proj = self.args.proj
+            prob = self.args.prob
+        except:
+            tree = self.args['tree']
+            proj = self.args['proj']
+            prob = self.args['prob']
         preds = {}
         arcs, rels, probs = [], [], []
         for words, feats in progress_bar(loader):
@@ -199,17 +203,16 @@ class BiaffineDependencyParser(Parser):
             lens = mask.sum(1).tolist()
             s_arc, s_rel = self.model(words, feats)
             arc_preds, rel_preds = self.model.decode(s_arc, s_rel, mask,
-                                                     self.args.tree,
-                                                     self.args.proj)
+                                                     tree, proj)
             arcs.extend(arc_preds[mask].split(lens))
             rels.extend(rel_preds[mask].split(lens))
-            if self.args.prob:
+            if prob:
                 arc_probs = s_arc.softmax(-1)
                 probs.extend([prob[1:i+1, :i+1].cpu() for i, prob in zip(lens, arc_probs.unbind())])
         arcs = [seq.tolist() for seq in arcs]
         rels = [self.REL.vocab[seq.tolist()] for seq in rels]
         preds = {'arcs': arcs, 'rels': rels}
-        if self.args.prob:
+        if prob:
             preds['probs'] = probs
 
         return preds
