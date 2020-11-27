@@ -16,11 +16,9 @@ args = {
 }
 
 parser = BiaffineDependencyParser.build(path='tmp/dp', **args)
-parser.train(train=args['train'], dev=args['dev'], test=args['test'], epochs=2)
+parser.train(train=args['train'], dev=args['dev'], test=args['test'], epochs=1)
 
-corpus = None
 parser = None
-trainer = DeepParserTrainer()
+corpus = None
+trainer = DeepParserTrainer(parser, corpus)
 trainer.train(max_epochs=30)
-
-
