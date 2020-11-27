@@ -5,12 +5,18 @@ and defines the relationships between "head" words and words, which modify those
 
 **Background and Related Work**
 
+These are several studies about Vietnamese Dependency Parsing
+
 * In 2008, N.L. Minh et al: MST parser on a corpus consisting of 450 sentences.
 * In 2013, N.T. Luong et al: MatlParser on a Vietnamese dependency treebank
 * In 2014, N. Q. Dat et al: a new conversion method to automatically transform a constiuent-based VietTreebank in to dependency trees
 * In 2017, N. K. Hieu: build BKTreebank, a dependency treebank for Vietnamese
 * In 2017, a Vietnamese depedency treebank of 3,000 sentences is included for the CoNLL shared-task: "Multilingual Parsing from Raw Text to Universal Dependencies": 48 dependency labels for Vietnamese based on Stanford dependency labels set.
 * In 2019, Vietnamese dependency parsing shared task in VLSP2019
+
+**Experiments Description**
+
+In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially biaffine attention method.  
 
 **VLSP2020 Dependency Parsing Dataset**
 
@@ -20,7 +26,7 @@ training data, and get `VTB_400.txt` file as test data.
 
 **Results**
 
-Detail results by using MaltParser, we consider this result as baseline of our experiments  
+Detail score after using MaltParser, we consider this result as baseline of our experiments  
 
 ```
 Metric     | Precision |    Recall |  F1 Score | AligndAcc
