@@ -15,4 +15,4 @@ args = {
 }
 parser = BiaffineDependencyParser.build(path='tmp/dp', **args)
 trainer = DeepParserTrainer(parser, corpus)
-trainer.train(max_epochs=5)
+trainer.train(max_epochs=2)
