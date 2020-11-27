@@ -1,4 +1,4 @@
-# [Work In Progress] Dependence Parsing
+# [WIP] Dependence Parsing
 
 `wip`, `help-wanted`, `vietnamese-dependence-parsing` 
 
