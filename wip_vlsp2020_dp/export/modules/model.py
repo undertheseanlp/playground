@@ -1,7 +1,14 @@
 import torch
 import torch.nn as nn
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
-from playground.wip_vlsp2020_dp.export.modules.base import CharLSTM, IndependentDropout, BiLSTM, SharedDropout, MLP, Biaffine
+
+from export.utils.transform import CoNLL
+
+try:
+    from playground.wip_vlsp2020_dp.export.modules.base import CharLSTM, IndependentDropout, BiLSTM, SharedDropout, MLP, Biaffine
+except:
+    from wip_vlsp2020_dp.export.modules.base import CharLSTM, IndependentDropout, BiLSTM, SharedDropout, MLP, \
+        Biaffine
 
 class BiaffineDependencyModel(nn.Module):
     r"""

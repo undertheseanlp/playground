@@ -2,7 +2,8 @@
 import os
 import torch
 import torch.nn as nn
-from supar.models import BiaffineDependencyModel
+
+from export.modules.model import BiaffineDependencyModel
 from supar.parsers.parser import Parser
 from supar.utils import Config, Dataset, Embedding
 from supar.utils.common import bos, pad, unk
