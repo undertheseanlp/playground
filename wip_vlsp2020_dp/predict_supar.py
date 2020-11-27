@@ -1,4 +1,4 @@
-from wip_vlsp2020_dp.export.parsers.parser import Parser
+from wip_vlsp2020_dp.export.models.parser import Parser
 
 parser = Parser.load('./tmp/dp')
 

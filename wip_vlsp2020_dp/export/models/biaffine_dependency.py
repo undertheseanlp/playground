@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 
 from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
-from wip_vlsp2020_dp.export.parsers.parser import Parser
+from wip_vlsp2020_dp.export.models.parser import Parser
 
 
 from supar.utils import Config, Dataset, Embedding
