@@ -5,9 +5,11 @@ import torch.nn as nn
 
 try:
     from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
+    from wip_vlsp2020_dp.export.parsers.parser import Parser
 except:
     from playground.wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
-from supar.parsers.parser import Parser
+    from playground.wip_vlsp2020_dp.export.parsers.parser import Parser
+
 from supar.utils import Config, Dataset, Embedding
 from supar.utils.common import bos, pad, unk
 from supar.utils.field import Field, SubwordField
