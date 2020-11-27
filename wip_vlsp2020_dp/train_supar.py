@@ -1,23 +1,8 @@
 from os.path import join
-
-import torch
 from supar import BiaffineDependencyParser
 from supar.utils import CoNLL
 from underthesea.file_utils import CACHE_ROOT
-
-from wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
-
-# model = BiaffineDependencyModel(10, 10, 5)
-#
-# words = torch.tensor([[1, 2, 3, 4, 5]])
-# feats = torch.tensor([[[2], [3], [1], [4], [5]]])
-#
-# output = model(words, feats)
-# print(output)
-
-# args = type("Args", (object, ), {})()
-# args.feat = 'char'
-# args.build = False
+from playground.wip_vlsp2020_dp.export.modules.model import BiaffineDependencyModel
 
 DATASETS_FOLDER = join(CACHE_ROOT, 'datasets')
 CORPUS = join(DATASETS_FOLDER, 'VLSP2020-DP-R1')
