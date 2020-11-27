@@ -38,15 +38,20 @@ class BiaffineDependencyParser(Parser):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-        if self.args.feat in ('char', 'bert'):
+        try:
+            feat = self.args.feat
+            device = self.args.device
+        except:
+            feat = self.args['feat']
+            device = self.args['device']
+        if feat in ('char', 'bert'):
             self.WORD, self.FEAT = self.transform.FORM
         else:
             self.WORD, self.FEAT = self.transform.FORM, self.transform.CPOS
         self.ARC, self.REL = self.transform.HEAD, self.transform.DEPREL
         self.puncts = torch.tensor([i
                                     for s, i in self.WORD.vocab.stoi.items()
-                                    if ispunct(s)]).to(self.args.device)
+                                    if ispunct(s)]).to(device)
 
     def train(self, train, dev, test, buckets=32, batch_size=5000,
               punct=False, tree=False, proj=False, verbose=True, **kwargs):

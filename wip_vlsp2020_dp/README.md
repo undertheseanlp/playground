@@ -1,6 +1,11 @@
-# [WIP] Dependence Parsing
+# [WIP] First Experiment with Vietnamese Dependence Parsing
 
-`wip`, `help-wanted`, `vietnamese-dependence-parsing` 
+`wip`, `help-wanted`, `vietnamese-dependence-parsing`, `date:nov-2020`
+
+```
+     Author: Vu Anh
+Last Update: Nov 2020 
+```
 
 ### Introduction
 
@@ -25,11 +30,11 @@ These are several studies about Vietnamese Dependency Parsing
 
 ### Experiments Description
 
-In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.
+In these experiments, we use MaltParser as a baseline method. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.
 
 **MaltParser**
 
-We run a quick MaltParser experiment with default config (see table 1)
+We run a simple MaltParser experiment with default config (see table 1)
 
 Table 1: Default configs for MaltParser
 

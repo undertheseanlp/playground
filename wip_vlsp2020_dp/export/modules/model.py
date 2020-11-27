@@ -103,9 +103,12 @@ class BiaffineDependencyModel(nn.Module):
                  **kwargs):
         super().__init__()
 
-        self.n_words = n_words
-        self.n_feats = n_feats
-        self.n_rels = n_rels
+        self.args = {
+            "n_words": n_words,
+            "n_feats": n_feats,
+            "n_rels": n_rels,
+            "feat": feat
+        }
 
         # the embedding layer
         self.word_embed = nn.Embedding(num_embeddings=n_words,
