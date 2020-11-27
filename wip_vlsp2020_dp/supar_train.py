@@ -1,5 +1,7 @@
 from os.path import join
 from underthesea.file_utils import CACHE_ROOT
+
+from wip_vlsp2020_dp.export.trainers.deep_parser_trainer import DeepParserTrainer
 from wip_vlsp2020_dp.export.models.biaffine_dependency import BiaffineDependencyParser
 
 DATASETS_FOLDER = join(CACHE_ROOT, 'datasets')
@@ -14,7 +16,11 @@ args = {
 }
 
 parser = BiaffineDependencyParser.build(path='tmp/dp', **args)
-
 parser.train(train=args['train'], dev=args['dev'], test=args['test'], epochs=30)
+
+corpus = None
+parser = None
+trainer = DeepParserTrainer()
+trainer.train(max_epochs=30)
 
 
