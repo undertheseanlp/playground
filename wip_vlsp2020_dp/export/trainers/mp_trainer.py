@@ -1,10 +1,10 @@
 import os
 from types import SimpleNamespace
 from conll18_ud_eval import evaluate_wrapper2
-from export.data import DPTagger
+from wip_vlsp2020_dp.export.data import DPTagger
 
 
-class DPTrainer:
+class MaltParserTrainer:
     def __init__(self, tagger: DPTagger, corpus):
         self.tagger = tagger
         self.corpus = corpus
