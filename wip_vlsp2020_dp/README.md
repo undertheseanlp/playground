@@ -163,4 +163,5 @@ python train_malt.py
 ### References
 
 [1] Dozat, T., & Manning, C. D. (2017). Deep biaffine attention for neural dependency parsing. ArXiv:1611.01734 [Cs]. http://arxiv.org/abs/1611.01734
+
 [2] Nguyen et al. (2019). NLP@UIT at VLSP 2019: A Simple Ensemble Model for Vietnamese Dependency Parsing. https://vlsp.org.vn/sites/default/files/2019-10/VLSP2019-DP-NguyenDucVu.pdf
