@@ -187,7 +187,10 @@ class Parser(object):
             path = supar.PRETRAINED[path] if path in supar.PRETRAINED else path
             state = torch.hub.load_state_dict_from_url(path)
         cls = supar.PARSER[state['name']] if cls.NAME is None else cls
-        args = state['args'].update(args)
+        if args:
+            args = state['args'].update(args)
+        else:
+            args = state['args']
         model = cls.MODEL(**args)
         model.load_pretrained(state['pretrained'])
         model.load_state_dict(state['state_dict'], False)

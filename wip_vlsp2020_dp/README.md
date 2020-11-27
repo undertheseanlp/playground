@@ -23,7 +23,13 @@ These are several studies about Vietnamese Dependency Parsing
 
 ### Experiments Description
 
-In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.  
+In these experiments, we use MaltParser as a baseline. We further do some experiments with deep learning methods, especially *biaffine attention* [[1]](#references) method.
+
+**Try MaltParser**
+
+**Explore Deep Learning model**
+
+There are some deep learning methods for dependence parser tasks, begin with Manning work (2016), we focus on *biaffine attention* [[1]](#references) - a proven method which give a best result in VLSP 2019.
 
 ### Dataset
 
