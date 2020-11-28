@@ -1,4 +1,4 @@
-from supar import Parser, BiaffineDependencyParser
+from supar import Parser
 
 parser = Parser.load('biaffine-dep-en')
 

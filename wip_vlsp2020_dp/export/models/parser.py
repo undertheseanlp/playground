@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
-
 import os
-from datetime import datetime, timedelta
-
+from datetime import datetime
 import supar
 import torch
-import torch.distributed as dist
 from supar.utils import Config, Dataset
 from supar.utils.field import Field
 from supar.utils.logging import init_logger, logger
-from supar.utils.metric import Metric
-from supar.utils.parallel import DistributedDataParallel as DDP
-from supar.utils.parallel import is_master
-from torch.optim import Adam
-from torch.optim.lr_scheduler import ExponentialLR
+
+from export import device
 
 
 class Parser(object):
@@ -128,7 +122,7 @@ class Parser(object):
         model = cls.MODEL(**args)
         model.load_pretrained(state['pretrained'])
         model.load_state_dict(state['state_dict'], False)
-        model.to(args['device'])
+        model.to(device)
         transform = state['transform']
         return cls(args, model, transform)
 

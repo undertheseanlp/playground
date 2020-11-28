@@ -24,7 +24,7 @@ logger = get_logger(__name__)
 init_logger(logger)
 
 
-class DeepParserTrainer:
+class ParserTrainer:
     def __init__(self, parser, corpus):
         self.parser = parser
         self.corpus = corpus
