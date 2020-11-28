@@ -1,7 +1,5 @@
-import logging
 import os
 from datetime import timedelta, datetime
-
 from supar.utils.field import Field, SubwordField
 from pathlib import Path
 from typing import Union
@@ -12,16 +10,13 @@ import torch.distributed as dist
 from supar.utils.parallel import DistributedDataParallel as DDP, is_master
 from torch.optim import Adam
 from torch.optim.lr_scheduler import ExponentialLR
+from underthesea import device, logger
 
-from export import device
 from export.models.biaffine_dependency_parser import BiaffineDependencyParserSupar
 from supar.utils import Config, Dataset, Embedding
 
 from export.modules.model import BiaffineDependencyModel
 from export.utils.logging import get_logger, init_logger
-
-logger = get_logger(__name__)
-init_logger(logger)
 
 
 class ParserTrainer:

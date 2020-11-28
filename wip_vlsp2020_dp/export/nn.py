@@ -4,8 +4,9 @@ from pathlib import Path
 from typing import Union
 
 import torch.nn
+from underthesea import device
 
-from export import device, file_utils
+from export import file_utils
 
 
 class Model(torch.nn.Module):

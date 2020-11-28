@@ -5,9 +5,7 @@ import supar
 import torch
 from supar.utils import Config, Dataset
 from supar.utils.field import Field
-from supar.utils.logging import init_logger, logger
-
-from export import device
+from underthesea import logger, device
 
 
 class Parser(object):
@@ -21,7 +19,6 @@ class Parser(object):
 
     def evaluate(self, data, buckets=8, batch_size=5000, **kwargs):
         args = self.args.update(locals())
-        init_logger(logger, verbose=args.verbose)
 
         self.transform.train()
         logger.info("Loading the data")
@@ -44,7 +41,6 @@ class Parser(object):
             args = locals()
             args.update(kwargs)
             args = type('Args', (object,), locals())
-        init_logger(logger, verbose=args.verbose)
 
         self.transform.eval()
         if args.prob:
