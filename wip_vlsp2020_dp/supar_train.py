@@ -9,4 +9,4 @@ embed = False
 parser = BiaffineDependencyParser(embeddings, embed=False)
 trainer = DeepParserTrainer(parser, corpus)
 trainer.train(base_path='tmp/resources/parsers/dp',
-              max_epochs=10)
+              max_epochs=1)
