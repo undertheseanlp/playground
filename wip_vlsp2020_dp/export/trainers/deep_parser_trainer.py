@@ -30,9 +30,15 @@ class DeepParserTrainer:
         Train any class that implement model interface
 
         Args:
+            max_epochs:
+            min_freq:
+            fix_len:
             base_path (object): Main path to which all output during training is logged and models are saved
 
         """
+        ################################################################################################################
+        # BUILD
+        ################################################################################################################
         locals_args = {
             'base_path': base_path,
             'fix_len': fix_len,
@@ -87,6 +93,10 @@ class DeepParserTrainer:
         model = BiaffineDependencyModel(**args)
         model.load_pretrained(WORD.embed).to(device)
         parser_supar = BiaffineDependencyParserSupar(args, model, transform)
+
+        ################################################################################################################
+        # TRAIN
+        ################################################################################################################
         parser_supar.train(train=self.corpus.train,
                            dev=self.corpus.dev,
                            test=self.corpus.test,
