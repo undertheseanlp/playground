@@ -10,8 +10,7 @@ Last Update: Nov 2020
 
 ### Introduction
 
-Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure 
-and defines the relationships between "head" words and words, which modify those heads. 
+Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between "head" words and words, which modify those heads. 
 
 In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods [WIP]. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task [TBD].
 
@@ -114,7 +113,9 @@ singlemalt
 
 **Biaffine Attenion for Neural Dependency Parsing**
 
-Our attempt is running an experiment using biaffine attention for neural dependency parsing, which yield a promise result in VLSP2019-DP dataset [[2]](#references) 
+Our attempt is running an experiment using deep biaffine attention for neural dependency parsing method [[1]](#references), which yield a promise result in VLSP2019-DP dataset [[2]](#references).
+
+The input to the model is a sequence of tokens and their part of speech tags, which is then put through a multilayer bidirectional LSTM network. The output state of the final LSTM layer is then fed through four separate ReLU layers, producing four specialized vector representations: one of the word as a dependent seeking its head; of of the word as a head seeking all its dependents; another for the word as a dependent deciding on its label; and a fourth of the word as head deciding on the labels of its dependents. These vectors are then used in two biaffine classifiers: the first computes a score for each pair of tokens, with the highest score for a given token indicating that token's most probable head; the second computes a score for each label for a given token/head pair, with the highest score representing the most probable label for the arc from the head to the dependent. This is show graphically in Figure 1.
 
 ![](img/biaffine_attention_dependency_parsing.png)
 
