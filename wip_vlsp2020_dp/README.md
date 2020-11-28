@@ -1,9 +1,10 @@
 # [WIP] A simple experiment with Vietnamese Dependence Parsing
 
-`wip`, `help-wanted`, `vietnamese-dependence-parsing`, `date:nov-2020`
+`wip`, `help-wanted`, `vietnamese-dependence-parsing`
 
 ```
 Author     : Vu Anh
+Status     : Work In Progress
 Last Update: Nov 2020 
 ```
 
@@ -119,7 +120,7 @@ Our attempt is running an experiment using biaffine attention for neural depende
 
 *Figure 1: Biaffine Attention for Neural Dependency Parsing*
  
-We try to make [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
+We use codebase from [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
 
 ### Dataset
 

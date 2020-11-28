@@ -8,5 +8,5 @@ embeddings = 'char'
 embed = False
 parser = BiaffineDependencyParser(embeddings, embed=False)
 trainer = DeepParserTrainer(parser, corpus)
-trainer.train(base_path='tmp/dp',
-              max_epochs=1)
+trainer.train(base_path='tmp/resources/parsers/dp',
+              max_epochs=10)

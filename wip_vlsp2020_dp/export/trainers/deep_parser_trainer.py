@@ -101,4 +101,9 @@ class DeepParserTrainer:
                            dev=self.corpus.dev,
                            test=self.corpus.test,
                            epochs=max_epochs,
+                           buckets=32,
+                           batch_size=5000,
+                           punct=False,
+                           tree=False,
+                           proj=False,
                            verbose=True)

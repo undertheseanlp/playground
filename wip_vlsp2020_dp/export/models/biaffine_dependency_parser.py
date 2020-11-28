@@ -56,30 +56,6 @@ class BiaffineDependencyParserSupar(Parser):
                                     for s, i in self.WORD.vocab.stoi.items()
                                     if ispunct(s)]).to(device)
 
-    def train(self, train, dev, test, buckets=32, batch_size=5000,
-              punct=False, tree=False, proj=False, verbose=True, **kwargs):
-        r"""
-        Args:
-            train/dev/test (list[list] or str):
-                Filenames of the train/dev/test datasets.
-            buckets (int):
-                The number of buckets that sentences are assigned to. Default: 32.
-            batch_size (int):
-                The number of tokens in each batch. Default: 5000.
-            punct (bool):
-                If ``False``, ignores the punctuations during evaluation. Default: ``False``.
-            tree (bool):
-                If ``True``, ensures to output well-formed trees. Default: ``False``.
-            proj (bool):
-                If ``True``, ensures to output projective trees. Default: ``False``.
-            verbose (bool):
-                If ``True``, increases the output verbosity. Default: ``True``.
-            kwargs (dict):
-                A dict holding the unconsumed arguments that can be used to update the configurations for training.
-        """
-
-        return super().train(**Config().update(locals()))
-
     def evaluate(self, data, buckets=8, batch_size=5000,
                  punct=False, tree=True, proj=False, verbose=True, **kwargs):
         r"""
