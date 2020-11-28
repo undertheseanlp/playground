@@ -29,28 +29,33 @@ class DeepParserTrainer:
         self.parser = parser
         self.corpus = corpus
 
-    def train(self, base_path: Union[Path, str],
-              fix_len=20,
-              min_freq=2,
-              buckets=32,
-              batch_size=5000,
-              punct=False,
-              tree=False,
-              proj=False,
-              lr=2e-3,
-              mu=.9,
-              nu=.9,
-              epsilon=1e-12,
-              clip=5.0,
-              decay=.75,
-              decay_steps=5000,
-              patience=100,
-              verbose=True,
-              max_epochs=10):
+    def train(
+            self, base_path: Union[Path, str],
+            fix_len=20,
+            min_freq=2,
+            buckets=32,
+            batch_size=5000,
+            punct=False,
+            tree=False,
+            proj=False,
+            lr=2e-3,
+            mu=.9,
+            nu=.9,
+            epsilon=1e-12,
+            clip=5.0,
+            decay=.75,
+            decay_steps=5000,
+            patience=100,
+            verbose=True,
+            max_epochs=10,
+            **kwargs
+    ):
         r"""
         Train any class that implement model interface
 
         Args:
+            base_path (object): Main path to which all output during training is logged and models are saved
+            max_epochs: Maximum number of epochs to train. Terminates training if this number is surpassed.
             verbose:
             patience:
             decay_steps:
@@ -65,10 +70,9 @@ class DeepParserTrainer:
             punct:
             batch_size:
             buckets:
-            max_epochs:
             min_freq:
             fix_len:
-            base_path (object): Main path to which all output during training is logged and models are saved
+
 
         """
         ################################################################################################################
