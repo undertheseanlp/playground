@@ -1,10 +1,17 @@
 import logging
 import os
+from datetime import timedelta, datetime
+
 from supar.utils.field import Field, SubwordField
 from pathlib import Path
 from typing import Union
 from supar.utils.common import bos, pad, unk
+from supar.utils.metric import Metric
 from supar.utils.transform import CoNLL
+import torch.distributed as dist
+from supar.utils.parallel import DistributedDataParallel as DDP, is_master
+from torch.optim import Adam
+from torch.optim.lr_scheduler import ExponentialLR
 
 from export import device
 from export.models.biaffine_dependency_parser import BiaffineDependencyParserSupar
@@ -25,11 +32,39 @@ class DeepParserTrainer:
     def train(self, base_path: Union[Path, str],
               fix_len=20,
               min_freq=2,
+              buckets=32,
+              batch_size=5000,
+              punct=False,
+              tree=False,
+              proj=False,
+              lr=2e-3,
+              mu=.9,
+              nu=.9,
+              epsilon=1e-12,
+              clip=5.0,
+              decay=.75,
+              decay_steps=5000,
+              patience=100,
+              verbose=True,
               max_epochs=10):
         r"""
         Train any class that implement model interface
 
         Args:
+            verbose:
+            patience:
+            decay_steps:
+            decay:
+            clip:
+            epsilon:
+            nu:
+            mu:
+            lr:
+            proj:
+            tree:
+            punct:
+            batch_size:
+            buckets:
             max_epochs:
             min_freq:
             fix_len:
@@ -97,21 +132,67 @@ class DeepParserTrainer:
         ################################################################################################################
         # TRAIN
         ################################################################################################################
-        parser_supar.train(train=self.corpus.train,
-                           dev=self.corpus.dev,
-                           test=self.corpus.test,
-                           epochs=max_epochs,
-                           buckets=32,
-                           batch_size=5000,
-                           punct=False,
-                           tree=False,
-                           proj=False,
-                           lr=2e-3,
-                           mu=.9,
-                           nu=.9,
-                           epsilon=1e-12,
-                           clip=5.0,
-                           decay=.75,
-                           decay_steps=5000,
-                           patience=100,
-                           verbose=True)
+        args = Config()
+        args.update({
+            'train': self.corpus.train,
+            'dev': self.corpus.dev,
+            'test': self.corpus.test
+        })
+        parser_supar.transform.train()
+        parser_supar.args.clip = clip
+        parser_supar.args.punct = punct
+        parser_supar.args.tree = tree
+        parser_supar.args.proj = proj
+        if dist.is_initialized():
+            batch_size = batch_size // dist.get_world_size()
+        logger.info("Loading the data")
+        train = Dataset(parser_supar.transform, self.corpus.train, **args)
+        dev = Dataset(parser_supar.transform, self.corpus.dev)
+        test = Dataset(parser_supar.transform, self.corpus.test)
+        train.build(batch_size, buckets, True, dist.is_initialized())
+        dev.build(batch_size, buckets)
+        test.build(batch_size, buckets)
+        logger.info(f"\n{'train:':6} {train}\n{'dev:':6} {dev}\n{'test:':6} {test}\n")
+
+        logger.info(f"{parser_supar.model}\n")
+        if dist.is_initialized():
+            parser_supar.model = DDP(parser_supar.model,
+                                     device_ids=[dist.get_rank()],
+                                     find_unused_parameters=True)
+        parser_supar.optimizer = Adam(parser_supar.model.parameters(),
+                                      lr,
+                                      (mu, nu),
+                                      epsilon)
+        parser_supar.scheduler = ExponentialLR(parser_supar.optimizer, decay ** (1 / decay_steps))
+
+        elapsed = timedelta()
+        best_e, best_metric = 1, Metric()
+
+        for epoch in range(1, max_epochs + 1):
+            start = datetime.now()
+
+            logger.info(f"Epoch {epoch} / {max_epochs}:")
+            parser_supar._train(train.loader)
+            loss, dev_metric = parser_supar._evaluate(dev.loader)
+            logger.info(f"{'dev:':6} - loss: {loss:.4f} - {dev_metric}")
+            loss, test_metric = parser_supar._evaluate(test.loader)
+            logger.info(f"{'test:':6} - loss: {loss:.4f} - {test_metric}")
+
+            t = datetime.now() - start
+            # save the model if it is the best so far
+            if dev_metric > best_metric:
+                best_e, best_metric = epoch, dev_metric
+                if is_master():
+                    parser_supar.save(base_path)
+                logger.info(f"{t}s elapsed (saved)\n")
+            else:
+                logger.info(f"{t}s elapsed\n")
+            elapsed += t
+            if epoch - best_e >= patience:
+                break
+        loss, metric = parser_supar.load(base_path)._evaluate(test.loader)
+
+        logger.info(f"Epoch {best_e} saved")
+        logger.info(f"{'dev:':6} - {best_metric}")
+        logger.info(f"{'test:':6} - {metric}")
+        logger.info(f"{elapsed}s elapsed, {elapsed / epoch}s/epoch")

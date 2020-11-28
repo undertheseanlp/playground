@@ -143,12 +143,10 @@ class BiaffineDependencyParserSupar(Parser):
 
         total_loss, metric = 0, AttachmentMetric()
 
-        try:
-            tree = self.args.tree
-            proj = self.args.proj
-        except:
-            tree = self.args['tree']
-            proj = self.args['proj']
+
+        tree = self.args['tree']
+        proj = self.args['proj']
+
         for words, feats, arcs, rels in loader:
             mask = words.ne(self.WORD.pad_index)
             # ignore the first token of each sentence
@@ -176,7 +174,6 @@ class BiaffineDependencyParserSupar(Parser):
             tree = self.args['tree']
             proj = self.args['proj']
             prob = self.args['prob']
-        preds = {}
         arcs, rels, probs = [], [], []
         for words, feats in progress_bar(loader):
             mask = words.ne(self.WORD.pad_index)
