@@ -106,4 +106,12 @@ class DeepParserTrainer:
                            punct=False,
                            tree=False,
                            proj=False,
+                           lr=2e-3,
+                           mu=.9,
+                           nu=.9,
+                           epsilon=1e-12,
+                           clip=5.0,
+                           decay=.75,
+                           decay_steps=5000,
+                           patience=100,
                            verbose=True)

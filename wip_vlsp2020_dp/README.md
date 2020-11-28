@@ -117,9 +117,29 @@ Our attempt is running an experiment using deep biaffine attention for neural de
 
 The input to the model is a sequence of tokens and their part of speech tags, which is then put through a multilayer bidirectional LSTM network. The output state of the final LSTM layer is then fed through four separate ReLU layers, producing four specialized vector representations: one of the word as a dependent seeking its head; of of the word as a head seeking all its dependents; another for the word as a dependent deciding on its label; and a fourth of the word as head deciding on the labels of its dependents. These vectors are then used in two biaffine classifiers: the first computes a score for each pair of tokens, with the highest score for a given token indicating that token's most probable head; the second computes a score for each label for a given token/head pair, with the highest score representing the most probable label for the arc from the head to the dependent. This is show graphically in Figure 1.
 
+*Figure 1: Biaffine Attention for Neural Dependency Parsing*
+
 ![](img/biaffine_attention_dependency_parsing.png)
 
-*Figure 1: Biaffine Attention for Neural Dependency Parsing*
+Model Parameters
+
+```
+BiaffineDependencyModel(
+  (word_embed): Embedding(5407, 100)
+  (feat_embed): CharLSTM(169, 50, n_out=100, pad_index=0)
+  (embed_dropout): IndependentDropout(p=0.33)
+  (lstm): BiLSTM(200, 400, num_layers=3, dropout=0.33)
+  (lstm_dropout): SharedDropout(p=0.33, batch_first=True)
+  (mlp_arc_d): MLP(n_in=800, n_out=500, dropout=0.33)
+  (mlp_arc_h): MLP(n_in=800, n_out=500, dropout=0.33)
+  (mlp_rel_d): MLP(n_in=800, n_out=100, dropout=0.33)
+  (mlp_rel_h): MLP(n_in=800, n_out=100, dropout=0.33)
+  (arc_attn): Biaffine(n_in=500, n_out=1, bias_x=True)
+  (rel_attn): Biaffine(n_in=100, n_out=85, bias_x=True, bias_y=True)
+  (criterion): CrossEntropyLoss()
+)
+```
+
  
 We use codebase from [supar code](https://github.com/yzhangcs/parser) work on Vietnamese Dependency Parsing task.
 
