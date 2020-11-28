@@ -143,7 +143,6 @@ class BiaffineDependencyParserSupar(Parser):
 
         total_loss, metric = 0, AttachmentMetric()
 
-
         tree = self.args['tree']
         proj = self.args['proj']
 
