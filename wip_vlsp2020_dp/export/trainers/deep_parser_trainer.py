@@ -43,7 +43,7 @@ class DeepParserTrainer:
             'base_path': base_path,
             'fix_len': fix_len,
             'min_freq': min_freq,
-            'max_epocsh': max_epochs
+            'max_epochs': max_epochs
         }
         args = Config(**locals_args)
         args.feat = self.parser.embeddings
