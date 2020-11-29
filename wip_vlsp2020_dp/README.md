@@ -8,11 +8,11 @@ Status     : Work In Progress
 Last Update: Nov 2020 
 ```
 
+In this experiment, we try to build our very first Vietnamese dependency parser for underthesea. We exams both traditional methods (such as MaltParser) and deep learning methods. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task [TBD]. We train and test our models in VLSP 2020 Dependency Parsing Dataset and report results in LAS, UAS score. We release our model as a function in underthesea v1.3.0 and our training code at https://github.com/undertheseanlp/playground.
+
 ### Introduction
 
 Dependency parsing is the task of extracting a dependency parse of a sentence that represents its grammatical structure and defines the relationships between "head" words and words, which modify those heads. 
-
-In this experiments, we try to build our very first dependency parser using VLSP2020 Dependence Parsing dataset and MatlParser, some deep learning methods [WIP]. We also wonder how Vietnamese word embeddings (e.g. PhoBert) works on dependency parsing task [TBD].
 
 There are some deep learning methods for dependence parser tasks, begin with Manning work (2016), we focus on *biaffine attention* [[1]](#references) - a proven method which give a best result in VLSP 2019.
 
