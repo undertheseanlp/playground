@@ -12,7 +12,7 @@ from torch.optim import Adam
 from torch.optim.lr_scheduler import ExponentialLR
 from underthesea import device, logger
 
-from export.models.biaffine_dependency_parser import BiaffineDependencyParserSupar
+from export.models.dependency_parser import BiaffineDependencyParserSupar
 from supar.utils import Config, Dataset, Embedding
 
 from export.modules.model import BiaffineDependencyModel

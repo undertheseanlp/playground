@@ -7,7 +7,7 @@ from torch.nn.modules.rnn import apply_permutation
 class CharLSTM(nn.Module):
     r"""
     CharLSTM aims to generate character-level embeddings for tokens.
-    It summerizes the information of characters in each token to an embedding using a LSTM layer.
+    It summarizes the information of characters in each token to an embedding using a LSTM layer.
 
     Args:
         n_char (int):

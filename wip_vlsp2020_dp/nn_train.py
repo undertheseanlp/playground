@@ -1,5 +1,5 @@
 from export.data import VLSP2020_DP_R1, Corpus
-from export.models.biaffine_dependency_parser import BiaffineDependencyParser
+from export.models.dependency_parser import BiaffineDependencyParser
 from wip_vlsp2020_dp.export.trainers import ParserTrainer
 
 corpus: Corpus = VLSP2020_DP_R1()

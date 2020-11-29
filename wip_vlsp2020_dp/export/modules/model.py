@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from supar.modules import BertEmbedding
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 
 from wip_vlsp2020_dp.export.modules.base import CharLSTM, IndependentDropout, BiLSTM, SharedDropout, MLP, \
