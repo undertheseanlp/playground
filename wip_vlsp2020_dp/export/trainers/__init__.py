@@ -1,1 +1,0 @@
-from .parser_trainer import ParserTrainer
