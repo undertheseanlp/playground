@@ -151,6 +151,10 @@ We show test results on the [VLSP 2020 Dependency Parsing dataset](https://vlsp.
 consists 10,000 dependency-annotated sentences. We concat two file `DP-Package2.18.11.2020.txt` and `VTB_2996.txt` as 
 train data, and get `VTB_400.txt` file as test data. 
 
+*Figure 2: Example of an annotated sentence in VLSP 2020 Dependency Parsing dataset*
+
+![](img/dp_example_1.png)
+
 ### (current) Results
 
 Detail score after using MaltParser, we consider this result as baseline of our experiments  
