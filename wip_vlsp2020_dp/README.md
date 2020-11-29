@@ -149,7 +149,7 @@ We use codebase from [supar code](https://github.com/yzhangcs/parser) work on Vi
 
 We show test results on the [VLSP 2020 Dependency Parsing dataset](https://vlsp.org.vn/vlsp2020/eval/udp), training data 
 consists 10,000 dependency-annotated sentences. We concat two file `DP-Package2.18.11.2020.txt` and `VTB_2996.txt` as 
-training data, and get `VTB_400.txt` file as test data. 
+train data, and get `VTB_400.txt` file as test data. 
 
 ### (current) Results
 
