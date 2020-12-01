@@ -61,7 +61,7 @@ def save_sentences(file, sentences):
 s_file = f'{S_FOLDER}/train.txt'
 d_file = f'{D_FOLDER}/train.txt'
 sentences = read_sentences(s_file)
-sentences = sentences[:50]
+sentences = sentences[:10]
 save_sentences(d_file, sentences)
 
 # dev: 50 sentences from test
