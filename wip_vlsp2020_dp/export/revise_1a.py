@@ -3,7 +3,6 @@ from os.path import dirname, isdir
 
 from underthesea.file_utils import CACHE_ROOT
 
-
 REVISE_VERSION = 1
 os.system(f'rm -rf {CACHE_ROOT}/datasets/VLSP2020-DP-R{REVISE_VERSION}')
 os.system(f'cp -r {CACHE_ROOT}/datasets/VLSP2020-DP-O {CACHE_ROOT}/datasets/VLSP2020-DP-R{REVISE_VERSION}')
@@ -48,14 +47,17 @@ D_FOLDER = f'{CACHE_ROOT}/datasets/VLSP2020-DP-{DATASET_VERSION}'
 os.system(f'rm -rf {D_FOLDER}')
 os.system(f'mkdir {D_FOLDER}')
 
+
 def read_sentences(file):
     sentences = open(file).read().split('\n\n')
     return sentences
+
 
 def save_sentences(file, sentences):
     content = '\n\n'.join(sentences)
     with open(file, 'w') as f:
         f.write(content)
+
 
 # train: sample 50 sentences
 s_file = f'{S_FOLDER}/train.txt'

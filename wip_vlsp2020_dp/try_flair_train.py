@@ -1,6 +1,6 @@
 from flair.data import Corpus
 from flair.datasets import UD_ENGLISH
-from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings
+from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, CharacterEmbeddings
 
 # 1. get the corpus
 corpus: Corpus = UD_ENGLISH().downsample(0.1)
@@ -19,7 +19,7 @@ embedding_types = [
     WordEmbeddings('glove'),
 
     # comment in this line to use character embeddings
-    # CharacterEmbeddings(),
+    CharacterEmbeddings(),
 
     # comment in these lines to use flair embeddings
     # FlairEmbeddings('news-forward'),
