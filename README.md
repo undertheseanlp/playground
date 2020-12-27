@@ -4,9 +4,22 @@
 <br/>
 </p>
 
-# Playground
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-GPLv3-blue"/>
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red.svg"/>
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/plays-2-brightgreen"/>
+  </a>
+</p>
 
-Underthesea Playground
+<h3 align="center">
+Open Vietnamese Natural Language Processing Experiments
+</h3>
 
-* Xây dựng mô hình tách từ
-  * [Sử dụng dữ liệu VLSP2013-WTK](vlsp2013_wtk) 
+# Playlist
+
+* [Build a Vietnamese word tokenizer](vlsp2013_wtk) 
