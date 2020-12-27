@@ -1,3 +1,9 @@
+<p align="center">
+<br/>
+<img src="docs/images/underthesea_playground-githubbanner-600x90.png"/>
+<br/>
+</p>
+
 # Playground
 
 Underthesea Playground
