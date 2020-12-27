@@ -22,4 +22,4 @@ Open Vietnamese Natural Language Processing Experiments
 
 # Playlist
 
-* [Build a Vietnamese word tokenizer](vlsp2013_wtk) 
+* [Build a Vietnamese word tokenizer](plays/vlsp2013_wtk) 
