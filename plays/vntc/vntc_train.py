@@ -12,15 +12,8 @@ from underthesea.models.text_classifier import TextClassifier, TEXT_CLASSIFIER_E
 from underthesea.trainers.classifier_trainer import ClassifierTrainer
 
 model_folder = "tmp/classification_svm_vntc"
-try:
-    shutil.rmtree(model_folder)
-except:
-    pass
-finally:
-    os.makedirs(model_folder)
-
-tfidf__ngram_range = (1, 2)
-tfidf__max_df = 0.5
+shutil.rmtree(model_folder, ignore_errors=True)
+os.makedirs(model_folder)
 
 start = time.time()
 print(">>> Train VNTC Classification")
@@ -28,9 +21,13 @@ corpus: CategorizedCorpus = DataFetcher.load_corpus(NLPData.VNTC)
 print("\n\n>>> Sample sentences")
 for s in corpus.train[:10]:
     print(s)
+
 pipeline = Pipeline(
     steps=[
-        ('features', TfidfVectorizer(ngram_range=tfidf__ngram_range, max_df=tfidf__max_df)),
+        ('features', TfidfVectorizer(
+            ngram_range=(1, 2),
+            max_df=0.5)
+         ),
         ('estimator', LinearSVC())
     ]
 )
