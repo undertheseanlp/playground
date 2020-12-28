@@ -37,7 +37,10 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 <td>Classification</td>
 <td>VNTC</td>
 <td></td>
-<td></td>
+<td>
+  <b>97.01</b> 
+  (<a href="http://docshare01.docshare.tips/files/4624/46242178.pdf">Vu RIVF'07</a>)
+</td>
 </tr>
 <tr>
 <td>Dependency Parsing</td>
