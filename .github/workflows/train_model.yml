@@ -17,7 +17,8 @@ jobs:
         run: |
           pip install -r plays/vntc/requirements.txt
           underthesea download-data VNTC
-          cd plays/vntc; python vntc_train.py
-          cd plays/vntc; python vntc_predict.py
+          cd plays/vntc
+          python vntc_train.py
+          python vntc_predict.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
