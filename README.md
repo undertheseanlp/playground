@@ -20,7 +20,7 @@
 Open Vietnamese Natural Language Processing Experiments
 </h3>
 
-`⚗️ Playground` provides open *experiments* and *tutorials* for Vietnamese Natural Language Processing
+`⚗️ Playground` provides *open experiments* and *tutorials* for Vietnamese Natural Language Processing
 
 ### Comparison with State-of-the-Art
 
