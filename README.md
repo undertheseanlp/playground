@@ -47,7 +47,7 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 </tr>
 </table>
 
-<small><i>Update*: December 2020</i></small>
+<small><i>*Update: December 2020</i></small>
 
 ### Playlist
 
