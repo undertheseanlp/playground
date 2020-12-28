@@ -26,8 +26,6 @@ Open Vietnamese Natural Language Processing Experiments
 
 Underthesea models compare with [best methods on a range of Vietnamese NLP tasks](https://github.com/undertheseanlp/NLP-Vietnamese-progress):
 
-*Update: December 2020*
-
 <table>
 <tr>
 <th>Task</th>
@@ -48,6 +46,8 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 <td></td>
 </tr>
 </table>
+
+<small><i>Update*: December 2020</i></small>
 
 ### Playlist
 
