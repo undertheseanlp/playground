@@ -41,6 +41,12 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>Dependency</td>
+<td>VLSP2020</td>
+<td></td>
+<td></td>
+</tr>
 </table>
 
 ### Playlist
