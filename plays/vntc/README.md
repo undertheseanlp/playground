@@ -4,7 +4,7 @@ In this play, we build a `Vietnamese Text Classifier` using `VNTC` dataset
 
 ## Results
 
-[*Corpus Description*](https://github.com/JackNhat/classification/blob/master/data_format.md)
+[*Corpus Description*](vntc_description.md)
 
 Experiment results with SVM model and Tfidf, BoW features
 
