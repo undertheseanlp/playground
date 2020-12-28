@@ -125,26 +125,3 @@ $ python classification.py \
     --fin tmp/input.txt
 Giao duc
 ```
-
-## Trích dẫn
-
-Nếu bạn sử dụng mã nguồn này, xin hãy trích dẫn thông tin sau 
-
-```
-@online{undertheseanlp/classification,
-author ={Vu Anh, Pham Hong Quang},
-year = {2019},
-title ={Phân loại văn bản tiếng Việt},
-url ={https://github.com/undertheseanlp/classification}
-}
-```
-
-## Lời cảm ơn
-
-Xin chân thành cảm ơn các nhóm phát triển sklearn, fasttext đã tạo ra những công cụ hữu ích để nhóm sử dụng trong các thử nghiệm của mình.
-
-## Bản quyền
-
-Mã nguồn của dự án được phân phối theo giấy phép [GPL-3.0](LICENSE.txt).
-
-Dự án sử dụng tập dữ liệu **[VNTC](https://github.com/duyvuleo/VNTC)** trong các thử nghiệm. Xin vui lòng kiểm tra lại thông tin trên website hoặc báo cáo khoa học tương ứng để biết thông tin về bản quyền và trích dẫn khi sử dụng tập dữ liệu này.
