@@ -17,111 +17,36 @@ Experiment results with SVM model and Tfidf, BoW features
 | TfidfVectorizer(ngram_range=(1, 3))             | 86.8     |
 | CountVectorizer(max_df=0.7)                     | 85.5     |
 
-## Thiết lập môi trường
+## Reproduce
 
-**Yêu cầu hệ thống** 
+Create Development Environment 
 
-* `Hệ điều hành: Linux (Ubuntu, CentOS), Mac`
-* `Python 3.6+`
-* `conda 4+`
-
-**Cài đặt**
-
-```
-# Tải project bằng cách sử dụng lệnh `git clone`
-$ git clone https://github.com/undertheseanlp/classification.git
-
-# Tạo môi trường mới và cài đặt các gói liên quan
-$ cd classification
-$ conda create -n classification python=3.6
-$ pip install -r requirements.txt
+``` 
+cd plays/vntc
+conda create -n classification python=3.6
+pip install -r requirements.txt
 ```
 
-## Hướng dẫn sử dụng
-
-Trước khi chạy các thử nghiệm, hãy chắc chắn bạn đã activate môi trường `classification`, mọi câu lệnh đều được chạy trong thư mục gốc của dự án.
+Download VNTC dataset
 
 ```
-$ cd classification
-$ source activate classification
-```
-**Sử dụng mô hình có sẵn**
-
-Dự đoán nhãn của một câu:
-
-```
-$ python classification.py "Trong phần lớn thời gian sáng nay, thầy trò HLV Park Hang Seo có cuộc họp nội bộ tại khách sạn. Tại cuộc họp này, nội dung quan trọng nhất chính là xem băng ghi hình một số trận đấu gần nhất của đội chủ nhà, giúp đội tuyển Việt Nam đưa ra những phương án đối phó trong trận ra quân tại AFF Cup 2018 sắp tới."
-The thao
+underthesea download-data VNTC
 ```
 
-Dự đoán nhãn từ nội dung trong file, sử dụng tùy chọn `--fin`
+Train a text classifier model
 
 ```
-$ python classification.py \
-    --fin tmp/input.txt
-Kinh doanh
+python vntc_train.py 
 ```
 
-### Huấn luyện mô hình
-
-**Tiền xử lý dữ liệu**
-
-Lấy về bộ dữ liệu VNTC
-```
-$ sh util/get_vntc.sh
-```
-
-Tập dữ liệu được quy chuẩn từng nhãn theo từng danh mục chứa các file văn bản như tập dữ liệu trong thư mục data/raw
-
-
-Chuyển đổi tập dữ liệu thành file excel
+Predict using trained model
 
 ```
-$ python util/preprocess_vntc.py
+python vntc_predict.py 
 ```
 
-**So sánh các thử nghiệm**
-
-Các thử nghiệm kết hợp LinearSVC và CountVectorizer 
+Optimize hyper-parameters
 
 ```
-$  python optimize_hyperparameters.py --mode optimize 
-            --train data/corpus/train.xlsx 
-            --test data/corpus/test.xlsx 
-            --trans tfidf 
-```
-
-```
-$ python optimize_hyperparameters.py --mode optimize 
-            --train data/corpus/train.xlsx
-            --test data/corpus/test.xlsx 
-            --trans count 
-
-```
-
-**Huấn luyện và lưu mô hình**
-
-```
-$ python train.py --mode train-test 
-            --train data/corpus/train.xlsx 
-            --test data/corpus/test.xlsx 
-            --s models
-```
-
-### Sử dụng mô hình đã huấn luyện
-
-
-Dự đoán nhãn của một câu:
-
-```
-$ python classification.py "Trong suốt kỳ chuyển nhượng mùa hè qua, tiền vệ Eden Hazard của Chelsea đã luôn được Real Madrid nhắm đến để thay thế Cristiano Ronaldo nhưng bất thành. Mới đây, Hazard đã cho biết anh đang chờ đợi thêm những tín hiệu chiêu mộ từ Real Madrid trước khi đưa ra quyết định về tương lai của mình ở Chelsea."
-Bong da
-```
-
-Dự đoán nhãn từ nội dung trong file, sử dụng tùy chọn `--fin`
-
-```
-$ python classification.py \
-    --fin tmp/input.txt
-Giao duc
+$ python optimize_hyperparameters.py 
 ```
