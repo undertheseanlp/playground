@@ -36,7 +36,7 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 <tr>
 <td>Classification</td>
 <td>VNTC</td>
-<td>[TBD]</td>
+<td>92.78</td>
 <td>
   <b>97.01</b> 
   (<a href="http://docshare01.docshare.tips/files/4624/46242178.pdf">Vu RIVF'07</a>)
@@ -58,4 +58,5 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 ### Playlist
 
 * [Build a Vietnamese word tokenizer](plays/vlsp2013_wtk) 
+* [Training a Vietnamese text classifier](plays/vntc)
 
