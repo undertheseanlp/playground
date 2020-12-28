@@ -1,5 +1,5 @@
-from languageflow.data import Sentence
-from languageflow.models.text_classifier import TextClassifier
+from underthesea.corpus.data import Sentence
+from underthesea.models.text_classifier import TextClassifier
 
 model_folder = "tmp/classification_svm_vntc"
 print(f"Load model from {model_folder}")
