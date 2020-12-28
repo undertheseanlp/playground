@@ -16,6 +16,7 @@ jobs:
       - name: Train model
         run: |
           pip install -r plays/vntc/requirements.txt
+          underthesea download VNTC
           cd plays/vntc; python vntc_train.py
           cd plays/vntc; python vntc_predict.py
         env:
