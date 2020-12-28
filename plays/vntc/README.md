@@ -37,12 +37,23 @@ Train a text classifier model
 
 ```
 python vntc_train.py 
+>>> Start training
+Dev score: 0.933037037037037
+Test score: 0.9267266194191333
+>>> Finish training in 116.78 seconds
+Your model is saved in tmp/classification_svm_vntc
 ```
 
 Predict using trained model
 
 ```
-python vntc_predict.py 
+python vntc_predict.py
+
+Text: Huawei có thể không cần Google, nhưng sẽ ra sao nếu thiếu ARM ?
+Labels: ['vi_tinh']
+
+Text: Trưởng phòng GD&ĐT xin lỗi vụ học sinh nhận khen thưởng là tờ giấy A4
+Labels: ['chinh_tri_xa_hoi'] 
 ```
 
 Optimize hyper-parameters
