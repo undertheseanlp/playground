@@ -1,0 +1,25 @@
+on:
+  schedule:
+    - cron: '0 2 * * *'
+
+name: Schedule train model
+jobs:
+  train_vntc:
+    name: Train model
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Train model
+        run: |
+          pip install -r plays/vntc/requirements.txt
+          underthesea download-data VNTC
+          cd plays/vntc
+          python vntc_train.py
+          python vntc_predict.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
