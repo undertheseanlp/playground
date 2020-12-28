@@ -1,14 +1,14 @@
-# Vietnamese Text Classifier
+# Training a Vietnamese Text Classifier
 
-In this play, we build a `Vietnamese Text Classifier`
+In this play, we build a `Vietnamese Text Classifier` using `VNTC` dataset
 
 ## Results
 
-Xem thêm về [*mô tả dữ liệu*](https://github.com/JackNhat/classification/blob/master/data_format.md)
+[*Corpus Description*](https://github.com/JackNhat/classification/blob/master/data_format.md)
 
-Kết quả các thử nghiệm kết hợp mô hình SVM và các đặc trưng Tfidf, BoW
+Experiment results with SVM model and Tfidf, BoW features
 
-| Mô hình                                         | F1 %     |
+| Models                                          | F1 (%)   |
 |-------------------------------------------------|----------|
 | TfidfVectorizer(ngram_range=(1, 2), max_df=0.5) | **92.8** |
 | CountVectorizer(ngram_range=(1, 3), max_df=0.7) | 89.3     |
