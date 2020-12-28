@@ -42,7 +42,7 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 <tr>
 <td>Dependency</td>
 <td>VLSP2020-DP</td>
-<td>(LAS) </td>
+<td>72.96 (LAS) </td>
 <td>
   <b>76.27</b> 
   (<a href="https://drive.google.com/file/d/19fWjeVfKUB-oVQv57OydrFOFpckwhJ6N/view?usp=sharing">Doan VLSP'20</a>)
