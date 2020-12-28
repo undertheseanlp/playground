@@ -20,6 +20,30 @@
 Open Vietnamese Natural Language Processing Experiments
 </h3>
 
-# Playlist
+`⚗️ Playground` provides open *experiments* and *tutorials* for Vietnamese Natural Language Processing
+
+### Comparison with State-of-the-Art
+
+Underthesea models compare with [best methods on a range of Vietnamese NLP tasks](https://github.com/undertheseanlp/NLP-Vietnamese-progress):
+
+*Update: December 2020*
+
+<table>
+<tr>
+<th>Task</th>
+<th>Dataset</th>
+<th>Underthesea</th>
+<th>Current/Previous Best</th>  
+</tr>
+<tr>
+<td>Classification</td>
+<td>VNTC</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+### Playlist
 
 * [Build a Vietnamese word tokenizer](plays/vlsp2013_wtk) 
+
