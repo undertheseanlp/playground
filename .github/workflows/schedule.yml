@@ -1,7 +1,8 @@
 on:
-  push:
+  schedule:
+    - cron: '0 2 * * *'
 
-name: Train model
+name: Schedule train model
 jobs:
   train_vntc:
     name: Train model
