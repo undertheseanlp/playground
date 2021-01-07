@@ -15,9 +15,9 @@ jobs:
           python-version: 3.6
       - name: Train model
         run: |
-          pip install -r plays/vntc/requirements.txt
+          pip install -r plays/classification/requirements.txt
           underthesea download-data VNTC
-          cd plays/vntc
+          cd plays/classification
           python vntc_train.py
           python vntc_predict.py
         env:
