@@ -17,7 +17,7 @@ jobs:
         run: |
           pip install -r plays/classification/requirements.txt
           underthesea download-data VNTC
-          cd plays/vntc
+          cd plays/classification
           python vntc_train.py
           python vntc_predict.py
         env:
