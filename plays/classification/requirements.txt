@@ -1,2 +1,2 @@
-git+git://github.com/undertheseanlp/underthesea@GH-381
+git+git://github.com/undertheseanlp/underthesea
 
