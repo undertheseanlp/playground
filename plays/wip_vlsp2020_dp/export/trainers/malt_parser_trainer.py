@@ -1,7 +1,7 @@
 import os
 from types import SimpleNamespace
 from conll18_ud_eval import evaluate_wrapper2
-from wip_vlsp2020_dp.export.data import DPTagger
+from plays.wip_vlsp2020_dp import DPTagger
 
 
 class MaltParserTrainer:
