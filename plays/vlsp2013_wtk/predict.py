@@ -1,15 +1,15 @@
 from pathlib import Path
 import yaml
 from underthesea.file_utils import CACHE_ROOT
-from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
 from underthesea.word_tokenize import tokenize
+#from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
+from external import CRFSequenceTagger
 
 
 def load_model(base_path):
     with open(Path(base_path) / "model.metadata", "r") as f:
         metadata = yaml.safe_load(f)
     model_type = metadata["model"]
-    print(model_type)
     if model_type == "CRFSequenceTagger":
         model = CRFSequenceTagger()
         model.load(base_path)
