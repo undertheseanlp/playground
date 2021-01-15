@@ -1,6 +1,8 @@
 on:
+  schedule:
+    - cron: '0 2 * * *'
   push:
-    master
+    - master
 
 name: Train model
 jobs:
