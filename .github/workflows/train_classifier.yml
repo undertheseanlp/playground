@@ -3,7 +3,7 @@ on:
     - cron: '0 2 * * *'
   push:
 
-name: Train classifier
+name: Train Classifier
 jobs:
   train_vntc:
     name: Train VNTC
