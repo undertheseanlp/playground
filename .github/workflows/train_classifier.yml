@@ -1,11 +1,14 @@
 on:
+  schedule:
+    - cron: '0 2 * * *'
   push:
-    master
+    branches:
+      - master
 
-name: Train model
+name: Train Classifier
 jobs:
   train_vntc:
-    name: Train model
+    name: Train VNTC
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
