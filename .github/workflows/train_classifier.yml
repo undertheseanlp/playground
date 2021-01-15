@@ -1,11 +1,14 @@
 on:
   schedule:
     - cron: '0 2 * * *'
+  push:
+    branches:
+      - master
 
-name: Schedule train model
+name: Train Classifier
 jobs:
   train_vntc:
-    name: Train model
+    name: Train VNTC
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,9 +19,9 @@ jobs:
           python-version: 3.6
       - name: Train model
         run: |
-          pip install -r plays/vntc/requirements.txt
+          pip install -r plays/classification/requirements.txt
           underthesea download-data VNTC
-          cd plays/vntc
+          cd plays/classification
           python vntc_train.py
           python vntc_predict.py
         env:

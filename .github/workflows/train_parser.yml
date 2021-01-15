@@ -1,7 +1,7 @@
 on:
   push:
 
-name: Train parser
+name: Train Parser
 jobs:
   train_vntc:
     name: Train parser
