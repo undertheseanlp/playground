@@ -2,7 +2,8 @@ on:
   schedule:
     - cron: '0 2 * * *'
   push:
-  - master
+    branches:
+      - master
 
 name: Train Classifier
 jobs:
