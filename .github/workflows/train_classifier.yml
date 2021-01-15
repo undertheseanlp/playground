@@ -6,7 +6,7 @@ on:
 name: Train classifier
 jobs:
   train_vntc:
-    name: Train model
+    name: Train VNTC
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
