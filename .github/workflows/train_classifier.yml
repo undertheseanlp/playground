@@ -1,5 +1,6 @@
 on:
   push:
+    master
 
 name: Train model
 jobs:
