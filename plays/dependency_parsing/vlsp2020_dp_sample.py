@@ -1,3 +1,4 @@
+import time
 from os.path import join
 
 from underthesea.datasets.vlsp2020_dp import VLSP2020_DP_SAMPLE
@@ -21,6 +22,7 @@ trainer.train(
     mu=.9  # optimizer parameters
 )
 
+time.sleep(1)
 
 parser = DependencyParser.load(base_path)
 sentences = [
