@@ -1,1 +1,1 @@
-git+git://github.com/undertheseanlp/underthesea#egg=GH-392
+underthesea==1.3.2a1
