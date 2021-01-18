@@ -14,7 +14,7 @@ embeddings = [
 ]
 parser = DependencyParser(embeddings=embeddings, init_pre_train=True)
 trainer: DependencyParserTrainer = DependencyParserTrainer(parser, corpus)
-base_path = join(MODELS_FOLDER, 'parsers', 'vi-dp-sample')
+base_path = join(MODELS_FOLDER, 'parsers', 'vi_dp_sample')
 trainer.train(
     base_path=base_path,
     max_epochs=3,
