@@ -1,1 +1,1 @@
-git+git://github.com/undertheseanlp/underthesea
+underthesea==1.1.3a2
