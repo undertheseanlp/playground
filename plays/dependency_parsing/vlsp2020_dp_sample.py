@@ -1,3 +1,4 @@
+import time
 from os.path import join
 
 from underthesea.datasets.vlsp2020_dp import VLSP2020_DP_SAMPLE
@@ -14,13 +15,14 @@ embeddings = [
 ]
 parser = DependencyParser(embeddings=embeddings, init_pre_train=True)
 trainer: DependencyParserTrainer = DependencyParserTrainer(parser, corpus)
-base_path = join(MODELS_FOLDER, 'parsers', 'vi-dp-sample')
+base_path = join(MODELS_FOLDER, 'parsers', 'vi_dp_sample')
 trainer.train(
     base_path=base_path,
     max_epochs=3,
     mu=.9  # optimizer parameters
 )
 
+time.sleep(1)
 
 parser = DependencyParser.load(base_path)
 sentences = [
