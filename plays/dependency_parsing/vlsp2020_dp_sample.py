@@ -12,10 +12,18 @@ embeddings = [
     FieldEmbeddings(),
     CharacterEmbeddings()
 ]
+base_path = join(MODELS_FOLDER, 'parsers', 'vi-dp-v1a0')
 parser = DependencyParser(embeddings=embeddings, init_pre_train=True)
 trainer: DependencyParserTrainer = DependencyParserTrainer(parser, corpus)
 trainer.train(
-    base_path=join(MODELS_FOLDER, 'parsers', 'vi-dp-v1a0'),
-    max_epochs=10,
+    base_path=base_path,
+    max_epochs=3,
     mu=.9  # optimizer parameters
 )
+
+parser = DependencyParser.load(base_path)
+sentences = [
+    ['Đó', 'là', 'kết quả', 'của', 'cuộc', 'vật lộn', 'bền bỉ', 'gần', '17', 'năm', 'của', 'Huỳnh Đỗi', '.']
+]
+dataset = parser.predict(sentences)
+print(dataset.sentences)
