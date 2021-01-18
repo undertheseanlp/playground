@@ -1,0 +1,24 @@
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  push:
+
+name: Train Parser
+jobs:
+  train_vntc:
+    name: Train parser
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Train parser
+        run: |
+          pip install -r plays/dependency_parsing/requirements.txt
+          cd plays/dependency_parsing
+          python vlsp2020_dp_sample.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

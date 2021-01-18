@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red.svg"/>
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/plays-2-brightgreen"/>
+    <img src="https://img.shields.io/badge/plays-3-brightgreen"/>
   </a>
 </p>
 
@@ -55,10 +55,11 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 
 <small><i>*Update: December 2020</i></small>
 
-## Playlist
+## Tutorials
 
 We provide a set of experiments to get you build NLP models using underthesea:
 
 * [Training a Vietnamese Word Tokenizer](plays/vlsp2013_wtk) 
 * [Training a Vietnamese Text Classifier](plays/classification)
+* [Training a Vietnamese Dependency Parser](plays/dependency_parsing)
 
