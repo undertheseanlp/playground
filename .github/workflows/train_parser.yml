@@ -23,6 +23,7 @@ jobs:
         run: |
           pip install -r plays/dependency_parsing/requirements.txt
           cd plays/dependency_parsing
+          export PYTHONPATH="${PYTHONPATH}:../.."
           python vlsp2020_dp_sample.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
