@@ -63,3 +63,8 @@ We provide a set of experiments to get you build NLP models using underthesea:
 * [Training a Vietnamese Text Classifier](plays/classification)
 * [Training a Vietnamese Dependency Parser](plays/dependency_parsing)
 
+## Stack
+
+* underthesea `v1.3.2a1`
+* pytorch `v1.5.1`
+
