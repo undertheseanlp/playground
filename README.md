@@ -59,7 +59,7 @@ Underthesea models compare with [best methods on a range of Vietnamese NLP tasks
 
 We provide a set of experiments to get you build NLP models using underthesea:
 
-* [Training a Vietnamese Word Tokenizer](plays/vlsp2013_wtk) 
+* [Training a Vietnamese Word Tokenizer](plays/wtk_vlsp2013) 
 * [Training a Vietnamese Text Classifier](plays/classification)
 * [Training a Vietnamese Dependency Parser](plays/dependency_parsing)
 

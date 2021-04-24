@@ -1,9 +1,8 @@
 from pathlib import Path
 import yaml
-from underthesea.file_utils import CACHE_ROOT
-from underthesea.word_tokenize import tokenize
-#from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
-from external import CRFSequenceTagger
+from underthesea.file_utils import MODELS_FOLDER
+from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
+from underthesea.pipeline.word_tokenize import tokenize
 
 
 def load_model(base_path):
@@ -32,7 +31,7 @@ def word_tokenize(tagger, sentence):
 
 
 if __name__ == '__main__':
-    base_path = Path(CACHE_ROOT) / "models/wtk_crf_2"
+    base_path = Path(MODELS_FOLDER) / "wtk_crf_4"
     tagger = load_model(base_path)
     sentence = 'Chàng trai 9X Quảng Trị khởi nghiệp từ nấm sò'
     output = word_tokenize(tagger, sentence)
