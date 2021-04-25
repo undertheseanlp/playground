@@ -1,48 +1,49 @@
 import hydra
 from omegaconf import DictConfig
-from os.path import join
 from underthesea.datasets.data import DataReader
-from underthesea.file_utils import DATASETS_FOLDER
 from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
 from underthesea.trainers import ModelTrainer
+import logging
+
+log = logging.getLogger(__name__)
 
 
 @hydra.main(config_path="configs/", config_name="config.yaml")
 def main(config: DictConfig):
-    features = [
-        # word unigram and bigram and trigram
-        "T[-2]", "T[-1]", "T[0]", "T[1]", "T[2]",
-        "T[-2,-1]", "T[-1,0]", "T[0,1]", "T[1,2]",
-        "T[-2,0]", "T[-1,1]", "T[0,2]",
+    def load_feature_from_hydra_config(hydra_config_features):
+        features = [_.split("::") for _ in hydra_config_features]
+        features = [_ for sublist in features for _ in sublist]
+        return features
 
-        "T[-2].lower", "T[-1].lower", "T[0].lower", "T[1].lower", "T[2].lower",
-        "T[-2,-1].lower", "T[-1,0].lower", "T[0,1].lower", "T[1,2].lower",
-
-        "T[-1].isdigit", "T[0].isdigit", "T[1].isdigit",
-        "T[-2].istitle", "T[-1].istitle", "T[0].istitle", "T[1].istitle", "T[2].istitle",
-        "T[0,1].istitle", "T[0,2].istitle",
-
-        "T[-2].is_in_dict", "T[-1].is_in_dict", "T[0].is_in_dict", "T[1].is_in_dict", "T[2].is_in_dict",
-        "T[-2,-1].is_in_dict", "T[-1,0].is_in_dict", "T[0,1].is_in_dict", "T[1,2].is_in_dict",
-        "T[-2,0].is_in_dict", "T[-1,1].is_in_dict", "T[0,2].is_in_dict"
-    ]
+    features = load_feature_from_hydra_config(config.model.features)
     tagger = CRFSequenceTagger(features)
-    corpus = DataReader.load_tagged_corpus(join(DATASETS_FOLDER, "VLSP2013-WTK-R2"),
-                                           train_file="train.txt",
-                                           test_file="test.txt")
-    corpus = corpus.downsample(0.01)
+    data_folder = config.dataset.data_folder
+    train_file = config.dataset.train_file
+    test_file = config.dataset.test_file
+
+    log.info('Dataset:')
+    log.info(config.dataset)
+    log.info('Model:')
+    log.info(config.model)
+    log.info('Trainer:')
+    log.info(config.trainer)
+    log.info('base_path:')
+    log.info(config.base_path)
+
+    corpus = DataReader.load_tagged_corpus(data_folder, train_file=train_file, test_file=test_file)
+    corpus = corpus.downsample(config.dataset.downsample)
     trainer = ModelTrainer(tagger, corpus)
 
     params = {
-        'c1': 1.0,  # coefficient for L1 penalty
-        'c2': 1e-3,  # coefficient for L2 penalty
-        'max_iterations': 10,  #
+        'c1': config.model.c1,  # coefficient for L1 penalty
+        'c2': config.model.c2,  # coefficient for L2 penalty
+        'max_iterations': config.trainer.max_iterations,  #
         # include transitions that are possible, but not observed
         'feature.possible_transitions': True,
         'feature.possible_states': True,
     }
 
-    trainer.train("models/wtk_crf_2", params)
+    trainer.train(config.base_path, params)
 
 
 if __name__ == "__main__":
