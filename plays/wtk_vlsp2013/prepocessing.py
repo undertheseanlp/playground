@@ -1,6 +1,6 @@
 from os import listdir
 from os.path import join
-
+from underthesea import word_tokenize
 
 class TextCorpus:
     @staticmethod
@@ -13,12 +13,30 @@ class TextCorpus:
                 _ = f.read().splitlines()
                 _ = [item for item in _ if not item.startswith("#")]
                 sentences.extend(_)
-        print(0)
+        return sentences
 
 
 def create_craft_corpus():
     corpus_folder = 'tmp/CP_Vietnamese-UNC'
-    TextCorpus.load(corpus_folder)
+    sentences = TextCorpus.load(corpus_folder)
+    train_file = join('tmp', 'corpus', 'train.txt')
+    with open(train_file, 'w') as f:
+        f.write('')
+    f = open(train_file, 'a')
+    for s in sentences:
+        tokens = word_tokenize(s)
+        for token in tokens:
+            syllables = token.split(" ")
+            # write first syllable
+            syllable = syllables[0]
+            f.write(f'{syllable}\tB-W\n')
+            # write other syllable
+            for syllable in syllables[1:]:
+                f.write(f'{syllable}\tI-W\n')
+        f.write('\n')
+    f.close()
+    print('Done')
+
 
 
 if __name__ == '__main__':

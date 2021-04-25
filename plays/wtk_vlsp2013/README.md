@@ -2,15 +2,6 @@
 
 * [Colab Notebook](https://colab.research.google.com/drive/1TooB3dyGWB86YkFjTKM4l8rkuTUCQDs2?usp=sharing)
 
-## Download dataset 
-
-``` 
-export VLSP2013_WTK_URL=[]
-underthesea download-data VLSP2013-WTK $VLSP2013_WTK_URL
-underthesea revise -c VLSP2013-WTK
-underthesea validate -t TOKENIZE -c VLSP2013-WTK-R2
-```
-
 ## Benchmarking
 
 **VLSP 2013**
@@ -33,3 +24,22 @@ The training set consists of 75k manually word-segmented sentences (about 23 wor
     <td></td>
   </tr>
 </table>
+
+## Usage 
+
+Download dataset 
+
+``` 
+export VLSP2013_WTK_URL=[]
+underthesea download-data VLSP2013-WTK $VLSP2013_WTK_URL
+underthesea revise -c VLSP2013-WTK
+underthesea validate -t TOKENIZE -c VLSP2013-WTK-R2
+```
+
+Train with custom dataset
+
+```
+export DATA_FOLDER=/home/anhv/PycharmProjects/undertheseanlp/playground/plays/wtk_vlsp2013/tmp/corpus
+export BASE_PATH=models/wtk_custom_crf
+python train_hydra.py dataset.data_folder=$DATA_FOLDER base_path=$BASE_PATH
+```
