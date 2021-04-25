@@ -1,2 +1,2 @@
 underthesea==1.2.3a3
-hydra
+hydra-core

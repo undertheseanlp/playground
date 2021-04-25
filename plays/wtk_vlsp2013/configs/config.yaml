@@ -1,11 +1,11 @@
 dataset:
-  data_folder: /Users/anhv/.underthesea/datasets/VLSP2013-WTK-R2/
+  data_folder: /home/anhv/.underthesea/datasets/VLSP2013-WTK-R2/
   train_file: train.txt
   dev_file: dev.txt
   test_file: test.txt
-  downsample: 0.01
+  downsample: 1
 trainer:
-  max_iterations: 10
+  max_iterations: 1000
 model:
   c1: 1.0
   c2: 1e-3
