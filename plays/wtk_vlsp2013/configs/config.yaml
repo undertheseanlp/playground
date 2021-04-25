@@ -1,0 +1,3 @@
+train_file: a.txt
+dev_file: b.txt
+test_file: c.txt

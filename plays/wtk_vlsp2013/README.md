@@ -26,7 +26,7 @@ The training set consists of 75k manually word-segmented sentences (about 23 wor
     <th>Code</th>
   </tr>
   <tr>
-    <td>Underthesea v1.3.2-alpha.1</td>
+    <td>CRF v1.3.2-alpha.1</td>
     <td>97</td>
     <td>Conditional Random Fields</td>
     <td></td>
