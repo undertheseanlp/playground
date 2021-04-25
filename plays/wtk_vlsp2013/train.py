@@ -1,6 +1,6 @@
 from os.path import join
 
-from underthesea.corpus.tagged_corpus import DataReader
+from underthesea.datasets.data import DataReader
 from underthesea.file_utils import DATASETS_FOLDER
 from underthesea.models.crf_sequence_tagger import CRFSequenceTagger
 from underthesea.trainers import ModelTrainer
