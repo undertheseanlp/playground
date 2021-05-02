@@ -25,7 +25,7 @@ The training set consists of 75k manually word-segmented sentences (about 23 wor
   </tr>
    <tr>
     <td>CRF</td>
-    <td>98.91</td>
+    <td>97.96</td>
     <td>Conditional Random Fields (UNC v1.0-alpha corpus)</td>
     <td></td>
     <td></td>
