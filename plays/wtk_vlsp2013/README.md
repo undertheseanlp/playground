@@ -23,6 +23,13 @@ The training set consists of 75k manually word-segmented sentences (about 23 wor
     <td></td>
     <td></td>
   </tr>
+   <tr>
+    <td>CRF</td>
+    <td>98.91</td>
+    <td>Conditional Random Fields (UNC v1.0-alpha corpus)</td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
 
 ## Usage 
@@ -39,7 +46,7 @@ underthesea validate -t TOKENIZE -c VLSP2013-WTK-R2
 Train with custom dataset
 
 ```
-export DATA_FOLDER=/home/anhv/PycharmProjects/undertheseanlp/playground/plays/wtk_vlsp2013/tmp/corpus
+export DATA_FOLDER=/home/anhv/PycharmProjects/undertheseanlp/playground/plays/wtk_vlsp2013/tmp/custom_corpus
 export BASE_PATH=models/wtk_custom_crf
 python train_hydra.py dataset.data_folder=$DATA_FOLDER base_path=$BASE_PATH
 ```
